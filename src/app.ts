@@ -1,16 +1,15 @@
 import express, { Router } from 'express';
+import { AppRoutes } from './routes/routes';
+import cors from 'cors';
 const app = express();
-
-const route = Router();
 
 app.use(express.json());
 
-route.get('/', (req, res)=>{
-    res.json({
-        message: 'hey'
-    })
+app.use(AppRoutes);
+const appCors = cors({
+    origin:'*'
 });
+app.use(appCors);
 
-app.use(route);
-
+//rodando na porta 8080
 app.listen(8080,()=>'Server running at http://localhost:8080');
