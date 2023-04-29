@@ -1,8 +1,8 @@
 import React from 'react'
 import {BrowserRouter, Link, Route, Routes} from 'react-router-dom'
-import Login from '../pages/Login'
-import Dashboard from '../pages/Dashboard'
-import Register from '../pages/Register'
+import Login from '../pages/login/Login'
+import Dashboard from '../pages/dashboard/Dashboard'
+import Register from '../pages/register/Register'
 
 export default function AppRoutes() {
   return (

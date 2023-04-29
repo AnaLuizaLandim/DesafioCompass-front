@@ -1,5 +1,5 @@
 
-body{
+div .alinhar{
     background-image: linear-gradient(to bottom, #2E2F36 0%, #17181C 100%) ;
     margin: 0rem;
     padding: 0;
@@ -22,7 +22,7 @@ body{
   
   .background-compass {
     flex: 1;
-    background-image: url(../img.png);
+    background-image: url('../../assets/imgs/img.png');
     background-repeat: no-repeat;
     background-size:cover;
   }

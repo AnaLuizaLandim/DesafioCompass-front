@@ -1,9 +1,9 @@
 import React from 'react'
-import '../pages/styles/App-login.css';
+import './Login.css';
 
 export default function Login() {
   return (
-    <div>
+    <div className="overflow-login">
       <div className="alinhar">
       <div className="box">
         <header className="header">
@@ -31,7 +31,7 @@ export default function Login() {
         </section>
 
       </div>
- 
+      
 
     <section className="background-compass">
     </section>
