@@ -5,11 +5,15 @@ const app = express();
 
 app.use(express.json());
 
-app.use(AppRoutes);
-const appCors = cors({
-    origin:'*'
+
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
 });
-app.use(appCors);
+app.use(AppRoutes);
 
 //rodando na porta 8080
-app.listen(8080,()=>'Server running at http://localhost:8080');
+app.listen(8080, () => 'Server running at http://localhost:8080');
