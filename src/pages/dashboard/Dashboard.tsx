@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getAllPosts } from '../../service/ApiService';
 import { Post } from '../../model/Post';
-import './Dashboard.css';
+import '../dashboard/Dashboard.css';
 export default function Dashboard() {
 
   const [posts, setPosts] = useState([] as Post[]);

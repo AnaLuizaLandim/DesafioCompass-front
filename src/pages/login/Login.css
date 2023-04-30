@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    font-family: 'Poppins', sans-serif;
 }
 div .alinhar{
     background-image: linear-gradient(to bottom, #2E2F36 0%, #17181C 100%) ;
@@ -104,7 +105,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .register{
     text-align: center;
-}
+    font-family: 'Poppins', sans-serif;}
 
 @media screen and (min-height:1079px){
     .alinhar{

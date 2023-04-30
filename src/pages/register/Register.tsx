@@ -39,7 +39,7 @@ export default function Register() {
           </section>
 
           <section className="register">
-            <p>Já possui login?&nbsp;<a href="/dashboard">Entre por aqui</a></p>
+            <p>Já possui login?&nbsp;<a href="/">Entre por aqui</a></p>
           </section>
 
         </div>
