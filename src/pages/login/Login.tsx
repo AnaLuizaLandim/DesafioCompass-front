@@ -13,7 +13,7 @@ export default function Login() {
 
         <section className="formulario">
           <h3>Login</h3>
-          <form action="" method="get">
+          <form action="" method="get" className='formulario-login'>
               <label htmlFor="user" className=""> </label>
               <input type="email" id="user" name="user" placeholder="Usuário" className="inputs required space" autoComplete="off" /><br/>
             
@@ -21,7 +21,7 @@ export default function Login() {
               <input type="password" id="password" name="password" placeholder="Senha" className="inputs required space" /><br/>
               <span className="span-required" style={{ textAlign: 'center' }}>Usuário e/ou Senha Inválidos<br /> Por favor, tente novamente</span>
           
-              <button className="button space" type="submit">Logar-se</button>
+              <button className="button space button-log" type="submit">Logar-se</button>
            
           </form>
         </section>

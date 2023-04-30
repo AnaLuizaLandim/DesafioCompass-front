@@ -1,111 +1,53 @@
 import React from 'react';
-
+import '../register/Register.css'
 
 export default function Register() {
-    return (
-<div className="alinhar">
-      <div className="box">
-        <header className="header">
-          <h1 className="ola">Olá,</h1>
-          <p className="pheader"> Para Continuar de forma segura,<br /> efetue o login</p>
-        </header>
+  return (
+    <div className="overflow-login">
+      <div className="card-principal">
+        <div className="box-register">
+          <header className="header-register">
+            <h1 className="ola-register">Olá,</h1>
+            <p className="pheader-register"> Para Continuar de forma segura,<br /> efetue o login</p>
+          </header>
 
-        <section className="formulario">
-      <h3>Registro</h3>
-      <form action="" method="get" id="form">
-        <p>
-          <label htmlFor="name" className=""> </label>
-          <i className="icon1 icon"></i>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Nome"
-            autoComplete="off"
-            className="inputs required"
-          />
-          <span className="span-required">Nome inválido, no mínimo 6 caracteres</span>
-        </p>
+          <section className="formulario">
+            <h3>Login</h3>
+            <form action="" method="get" className='formulario-register'>
+              <input type="text" id="name" name="name" placeholder="Nome" className="inputs required input-register space" /><br/>
+              <span className="span-required">Nome inválido, no mínimo 6 caracteres</span>
 
-        <p>
-          <label htmlFor="user" className=""> </label>
-          <i className="icon1 icon"></i>
-          <input
-            type="text"
-            id="user"
-            name="user"
-            placeholder="Usuário"
-            autoComplete="off"
-            className="inputs required"
-          />
-          <span className="span-required">Usuario inválido, sem símbolos</span>
-        </p>
-        <p>
-          <label htmlFor="date" className=""> </label>
-          <i className="icon2 icon"></i>
-          <input
-            placeholder="Nascimento"
-            type="text"
-            onFocus={(e) => (e.target.type = "date")}
-            id="date"
-            className="inputs required"
-          />
-          <span className="span-required">Insira o seu nascimento</span>
-        </p>
-        <p>
-          <label htmlFor="email" className=""> </label>
-          <i className="icon3 icon"></i>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-            autoComplete="off"
-            className="inputs required"
-          />
-          <span className="span-required">Email inválido</span>
-        </p>
-        <p>
-          <label htmlFor="password" className=""> </label>
-          <i className="icon4 icon"></i>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Senha"
-            className="inputs required"
-          />
-          <span className="span-required">A senha dever no mínimo 8 caracteres</span>
-        </p>
-        <p>
-          <label htmlFor="password2" className=""> </label>
-          <i className="icon5 icon"></i>
-          <input
-            type="password"
-            id="password2"
-            name="password2"
-            placeholder="Confirme sua senha"
-            className="inputs required"
-          />
-          <span className="span-required">As senhas não correspondem</span>
-        </p>
-        <p>
-          <button className="button" type="submit" value="enviar">
-            Registrar-se
-          </button>
-        </p>
-      </form>
-    </section>
+              <input type="text" id="user" name="user" placeholder="User" className="inputs required input-register space" /><br/>
+              <span className="span-required">Usuario inválido, sem símbolos</span>
 
-        <section className="register">
-          <p>Novo por aqui?&nbsp;<a href="/dashboard">Registre-se</a></p>
+              <input type="date" id="date" name="date" placeholder="Data" className="inputs required input-register space" /><br/>
+              <span className="span-required">Insira o seu nascimento</span>
+
+              <label htmlFor="email" className=""> </label>
+              <input type="email" id="email" name="email" placeholder="Email" className="inputs required space input-register space" autoComplete="off" /><br />
+              
+              <label htmlFor="password" className=""> </label>
+              <input type="password" id="password" name="password" placeholder="Senha" className="inputs required space input-register" /><br />
+
+              <label htmlFor="password2" className=""> </label>
+              <input type="password2" id="password2" name="password" placeholder="Repita a senha" className="inputs required space input-register" /><br />
+              <span className="span-required" style={{ textAlign: 'center' }}>Senha Inválida<br /> Por favor, tente novamente</span>
+              
+              <button className="button space button-register" type="submit">Registrar-se</button>
+
+            </form>
+          </section>
+
+          <section className="register">
+            <p>Já possui login?&nbsp;<a href="/dashboard">Entre por aqui</a></p>
+          </section>
+
+        </div>
+
+
+        <section className="background-compass">
         </section>
-
       </div>
- 
-
-    <section className="background-compass">
-    </section>
-    </div>        
-    )
+    </div>
+  )
 }

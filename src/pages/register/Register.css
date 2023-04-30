@@ -1,0 +1,92 @@
+
+div .card-principal{
+    background-image: linear-gradient(to bottom, #2E2F36 0%, #17181C 100%) ;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+  }
+
+.box-register {
+  flex: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 50px;
+  box-sizing: border-box;
+}
+.background-compass {
+  flex: 1;
+  background-image: url("../../assets/imgs/img.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+span {
+  display: none;
+}
+
+.header-register {
+  text-align: left;
+  margin: 0 29%;
+}
+header .ola-register {
+  font-size: 4rem;
+}
+
+header .pheader-register {
+  font-size: 1rem;
+}
+
+.formulario-register{
+    text-align: center;
+}
+.formulario h3{
+    font-size: 2rem;
+    box-sizing: border-box;
+    text-align: left;
+    margin: 1rem 29%;
+}
+
+::-webkit-input-placeholder{
+    color: white;
+    font-size: 1rem;
+}
+
+form .input-register{
+    border: 0.125rem solid #F5F5F5;
+    border-radius: 2.875rem;
+    color: #F5F5F5;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+
+  form .button-register{
+    border: 0.125rem solid #FE2E05;
+    border-radius: 2.875rem;
+    width: 22rem;
+    height: 3.875rem;
+    background-image: linear-gradient(to bottom,#AD2D14 0%, #F42E07 100%);
+    color: white;
+    font-size: 1rem;
+
+}
+
+@media screen and (min-height:1024px){
+    .card-principal{
+    min-height: 1024px;
+    }
+    .box-register{
+        margin: auto;
+    }
+}
+
+@media screen and (min-width:1150px){
+    .card-principal{
+        min-height: 1200px;
+    }
+    .box-register{
+        margin: auto;
+    }
+}

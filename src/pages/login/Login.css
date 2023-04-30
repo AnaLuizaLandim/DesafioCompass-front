@@ -1,4 +1,6 @@
-
+body{
+    margin: 0;
+}
 div .alinhar{
     background-image: linear-gradient(to bottom, #2E2F36 0%, #17181C 100%) ;
     margin: 0rem;
@@ -31,7 +33,7 @@ div .alinhar{
     display: none;
 }
 
-header{
+.header{
     text-align: left;
     margin: 0 29%;
 }
@@ -45,13 +47,14 @@ header .pheader{
 }
 
 /*formulario*/
-form{
+.formulario-login{
     text-align: center;
 }
 .formulario h3{
     font-size: 2rem;
     box-sizing: border-box;
-    text-align: center;
+    text-align: left;
+    margin: 1rem 29%;
 }
 form input{
     width: 20rem;
@@ -84,7 +87,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0;
   }
 
-  form button{
+  form .button-log{
     border: 0.125rem solid #FE2E05;
     border-radius: 2.875rem;
     width: 22rem;
@@ -104,7 +107,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 @media screen and (min-height:1079px){
-    body{
+    .alinhar{
         overflow: hidden;
     }
     .box{
@@ -113,7 +116,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 @media screen and (min-width:1150px){
-    body{
+    .alinhar{
         overflow: hidden;
     }
     .box{
