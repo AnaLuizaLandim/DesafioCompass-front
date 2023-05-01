@@ -12,29 +12,40 @@ export default function Dashboard() {
   }, [])
 
   return (
-    <div>
-      <h1>Dashboard Page</h1>
-      <div>
-        {/* saksaksak */}
-        {posts.map((item, index) => (
-          <div className='card-container' key={index}>
-            <div className="card">
-              <h4>{item.user}</h4>
-              <p>
-              {item.description}
-              </p>
-              <div className="comments">
-              {item.comments && item.comments.map((commentItem, commentIndex)=>(
-                <div className="comment" key={'comment'+ commentIndex}> 
-                <h5>{commentItem.user}</h5>
-                <p>{commentItem.comment}</p>
-                </div>
-              ))}
-              </div>
+
+    <div className='home'>
+      <div className='nav'>
+        <h1>COMPASS.OUL</h1>
+      </div>
+      <div className='main'>
+        <div className='header-dash'>
+        <h2> home</h2>
+        </div>
+        <div className='body'>
+          <div className='posts'>
+            <div className='write-field'>
+            <form>
+              <img src='https://meups.com.br/wp-content/uploads/2022/10/The-Witcher-6-900x503.jpg' className='imagem'></img>
+              <input type="text" name="" id="" className='textarea'/><br/>
+              <button>Postar</button>
+            </form>
             </div>
+          <div className='post'>
 
           </div>
-        ))}
+          </div>
+          <div className='topics'>
+          <div className='trend'>
+            
+          </div>
+          <div className='trend'>
+            
+          </div>
+          <div className='trend'>
+            
+          </div>
+          </div>
+        </div>
       </div>
     </div>
   )
