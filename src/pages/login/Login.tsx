@@ -1,6 +1,7 @@
 import React from 'react';
 import './Login.css';
 
+
 interface FormEvent extends React.FormEvent<HTMLFormElement> {}
 
 export default function Login(): JSX.Element {
@@ -11,10 +12,7 @@ export default function Login(): JSX.Element {
 
   const setError = (index: number): void => {
     campos[index].style.border = '0.125rem solid yellow';
-    campos[index].style.order = '-1';
-    const span = campos[index].nextElementSibling as HTMLElement;
     span.style.display = 'block';
-    campos[index].style.border = '0.125rem solid yellow';
   };
 
   const removeError = (index: number): void => {
@@ -30,9 +28,8 @@ export default function Login(): JSX.Element {
       setError(0);
     }
   };
-
-  const senhaValidation = (): void => {
     
+  const senhaValidation = (): void => {
   };
 
   const handleSubmit = (event: FormEvent): void => {
@@ -42,6 +39,7 @@ export default function Login(): JSX.Element {
   };
 
   return (
+
     <div className="overflow-login">
       <div className="alinhar">
         <div className="box">

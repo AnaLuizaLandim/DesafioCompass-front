@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getAllPosts } from '../../service/ApiService';
 import { Post } from '../../model/Post';
 import '../dashboard/Dashboard.css';
+import imagem from'../../assets/imgs/compass.uol_Negativo 1.png'
 export default function Dashboard() {
 
   const [posts, setPosts] = useState([] as Post[]);
@@ -15,20 +16,30 @@ export default function Dashboard() {
 
     <div className='home'>
       <div className='nav'>
-        <h1>COMPASS.OUL</h1>
+        <img className='compassnegativo' src={imagem} alt=''/>
       </div>
       <div className='main'>
         <div className='header-dash'>
-        <h2> home</h2>
+        <i className="fa-solid fa-house"></i>
+        <h3> Home</h3>
+        <h3 className='user-lol'>User</h3>
         </div>
         <div className='body'>
           <div className='posts'>
             <div className='write-field'>
-            <form>
-              <img src='https://meups.com.br/wp-content/uploads/2022/10/The-Witcher-6-900x503.jpg' className='imagem'></img>
-              <input type="text" name="" id="" className='textarea'/><br/>
-              <button>Postar</button>
+            <form className='form-dash'>
+              <img src='https://meups.com.br/wp-content/uploads/2022/10/The-Witcher-6-900x503.jpg' className='imagem' alt=''></img>
+              <input type="text" name="" id="" className='textarea' placeholder='No que você está pensando?'/><br/>
+              <div className='Sempre'>
+              <i className="fa-solid fa-camera"></i>
+              <i className="fa-regular fa-image"></i>
+              <i className="fa-solid fa-paperclip"></i>
+              <i className="fa-regular fa-face-smile"></i>
+              <i className="fa-solid fa-location-dot"></i>
+              <button type='submit' className='dash-b'>Postar</button>
+              </div>
             </form>
+            
             </div>
           <div className='post'>
 
@@ -36,7 +47,8 @@ export default function Dashboard() {
           </div>
           <div className='topics'>
           <div className='trend'>
-            
+            <h3>Meus Amigos</h3>
+            <button className="trend-b">^</button>
           </div>
           <div className='trend'>
             
