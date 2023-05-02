@@ -2,7 +2,7 @@ export const UserData = {
     "users": [
         {
             "name": "Ana Luiza Landim Irschlinger",
-            "user": "analuizalandimirschlinger",
+            "user": "anairschlinger",
             "birthdate": "1992-08-05",
             "email": "ana.irschlinger.pb@compasso.com.br",
             "password": "BolsistasUOL",
@@ -10,7 +10,7 @@ export const UserData = {
         },
         {
             "name": "Camila Florão Barcellos",
-            "user": "camilafloraobarcellos",
+            "user": "camilabarcellos",
             "birthdate": "1993-04-10",
             "email": "camila.barcellos.pb@compasso.com.br",
             "password": "BolsistasUOL",
@@ -18,7 +18,7 @@ export const UserData = {
         },
         {
             "name": "Dener Kisner Borges",
-            "user": "denerkisnerborges",
+            "user": "denerborges",
             "birthdate": "1992-06-03",
             "email": "dener.borges.pb@compasso.com.br",
             "password": "BolsistasUOL",
@@ -26,7 +26,7 @@ export const UserData = {
         },
         {
             "name": "Diego Leonardo Martinicorena Suarez",
-            "user": "diegomartinicorenasuarez",
+            "user": "diegosuarez",
             "birthdate": "1994-09-27",
             "email": "diego.suarez.pb@compasso.com.br",
             "password": "BolsistasUOL",
@@ -34,7 +34,7 @@ export const UserData = {
         },
         {
             "name": "Emanuelle Fritzen Machado",
-            "user": "emanuellefritzenmachado",
+            "user": "emanuellemachado",
             "birthdate": "1993-01-28",
             "email": "emanuelle.machado.pb@compasso.com.br",
             "password": "BolsistasUOL",
@@ -58,7 +58,7 @@ export const UserData = {
         },
         {
             "name": "Gabriel Medeiros Garcia",
-            "user": "gabrielmedeiros",
+            "user": "gabrielgarcia",
             "birthdate": "1993-10-18",
             "email": "gabriel.garcia.pb@compasso.com.br",
             "password": "BolsistasUOL",
@@ -66,7 +66,7 @@ export const UserData = {
         },
         {
             "name": "Isadora de Pinho Brito",
-            "user": "isadorapinhobrito",
+            "user": "isadorabrito",
             "birthdate": "1994-06-17",
             "email": "isadora.brito.pb@compasso.com.br",
             "password": "BolsistasUOL",
@@ -74,7 +74,7 @@ export const UserData = {
         },
         {
             "name": "José Valério da Silva Figueira",
-            "user": "josevaleriofigueira",
+            "user": "josevalerio",
             "birthdate": "1993-09-15",
             "email": "jose.figueira.pb@compasso.com.br",
             "password": "BolsistasUOL",
@@ -82,7 +82,7 @@ export const UserData = {
         },
         {
             "name": "Josiel Jesus Matos",
-            "user": "josieljesusmatos",
+            "user": "josielmatos",
             "birthdate": "1992-11-29",
             "email": "josiel.matos.pb@compasso.com.br",
             "password": "BolsistasUOL",
