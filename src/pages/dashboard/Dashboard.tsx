@@ -30,7 +30,7 @@ export default function Dashboard() {
       </div>
       <div className='main'>
         <div className='header-dash'>
-          <i className="fa-solid fa-house"></i>
+          <a href='/dashboard'><i className="fa-solid fa-house"></i></a>
           <h3> Home</h3>
           <h3 className='user-lol'>User</h3>
         </div>
@@ -38,8 +38,10 @@ export default function Dashboard() {
           <div className='posts'>
             <div className='write-field'>
               <form className='form-dash'>
-                <img src='https://meups.com.br/wp-content/uploads/2022/10/The-Witcher-6-900x503.jpg' className='imagem' alt=''></img>
-                <input type="text" name="" id="" className='textarea' placeholder='No que você está pensando?' /><br />
+              <div className='textbox-comment'>
+                  <img src='https://meups.com.br/wp-content/uploads/2022/10/The-Witcher-6-900x503.jpg' className='imagem' alt=''></img>
+                  <input className="placeholder" type="text" name="" id="" placeholder='O que você está pensando?'/>
+                  </div>
                 <div className='Sempre'>
                   <i className="fa-solid fa-camera"></i>
                   <i className="fa-regular fa-image"></i>
@@ -78,10 +80,16 @@ export default function Dashboard() {
                   <input className="placeholder" type="text" name="" id="" placeholder='O que você está pensando?'/>
                   </div>
                   <div className="comments">
+                    <p className='all-comments'>Todos os comentários</p>
                     {item.comments && item.comments.map((commentItem, commentIndex) => (
                       <div className="comment" key={'comment' + commentIndex}>
+                        <div className='foto-user'>
+                        <img src='https://sm.ign.com/ign_br/screenshot/default/ign-wiki-witcher-broken-flower-1_vn1m.jpg' className='image-comment' alt=''></img>
+                        <div className='comments-text'>
                         <h5>{commentItem.user}</h5>
                         <p>{commentItem.comment}</p>
+                        </div>
+                        </div>
                       </div>
                     ))}
                   </div>
