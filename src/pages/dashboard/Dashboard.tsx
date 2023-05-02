@@ -37,7 +37,7 @@ export default function Dashboard() {
         <div className='body'>
           <div className='posts'>
             <div className='write-field'>
-              <form className='form-dash'>
+              <form className='form-dash' action='/dashboard' method='post'>
               <div className='textbox-comment'>
                   <img src='https://meups.com.br/wp-content/uploads/2022/10/The-Witcher-6-900x503.jpg' className='imagem' alt=''></img>
                   <input className="placeholder" type="text" name="" id="" placeholder='O que você está pensando?'/>

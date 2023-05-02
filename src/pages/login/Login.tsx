@@ -34,6 +34,7 @@ export default function Login(): JSX.Element {
 
   const userValidation = (): void => {
     const emailuser = users.map((item, index) => item.email);
+    const userlogin = campos[0].value;
     if (emailRegex.test(campos[0].value)) {
       for (var i = 0; i < emailuser.length; i++) {
         if (campos[0].value === emailuser[i]) {
