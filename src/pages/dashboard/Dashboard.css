@@ -61,7 +61,7 @@ padding: 0.5rem 0;
 }
 
 .header-dash .user-lol{
-  margin-left: 80%;
+  margin-left: 60%;
   padding: 0.5rem 0;
 }
 
@@ -177,7 +177,7 @@ padding: 0.5rem 0;
 
 
 .compassnegativo{
-    width: 15rem;
+    width: 20rem;
     padding: 20px;
 }
 
@@ -354,7 +354,7 @@ button i{
     }
     
     .header-dash .user-lol{
-      margin-left: 80%;
+      margin-left: 60%;
       padding: 1.5rem 0;
   }
 }
