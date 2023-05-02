@@ -107,6 +107,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     text-align: center;
     font-family: 'Poppins', sans-serif;}
 
+.error{
+    border: 2px solid yellow !important;
+}
+
 @media screen and (min-height:1079px){
     .alinhar{
         overflow: hidden;

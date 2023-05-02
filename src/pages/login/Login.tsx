@@ -1,65 +1,41 @@
 import React from 'react';
 import './Login.css';
 import { useEffect, useState } from 'react'
-import { getAllUsers } from '../../service/ApiService';
-import { User } from '../../model/User';
+import { getAllUsers, postUserLogin } from '../../service/ApiService';
+import { User, UserLogin } from '../../model/User';
+import { useNavigate } from 'react-router-dom';
 
 
-
-interface FormEvent extends React.FormEvent<HTMLFormElement> {}
+interface FormEvent extends React.FormEvent<HTMLFormElement> { }
 
 export default function Login(): JSX.Element {
-
+  const navigate = useNavigate();
   const [users, setUsers] = useState([] as User[]);
   useEffect(() => {
     getAllUsers().then((response) => {
       setUsers(response);
-      console.log(response);
     })
   }, [])
 
-  const form = document.querySelector('form') as HTMLFormElement;
-  const campos = document.querySelectorAll('.required') as NodeListOf<HTMLInputElement>;
-  const span = document.querySelector('.span-required') as HTMLElement;
+
+  const [form, setForm] = useState({ email: '', password: '' } as UserLogin);
+  const [error, setError] = useState(false);
+
+
   const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-  const setError = (index: number): void => {
-    campos[index].style.border = '0.125rem solid yellow';
-    span.style.display = 'block';
-  };
 
-  const removeError = (index: number): void => {
-    campos[index].style.border = '';
-    span.style.display = 'none';
-  };
-
-  const userValidation = (): void => {
-   
-    const emailuser = users.map((item, index) => item.email);
-    const userlogin = campos[0].value;
-    if (emailRegex.test(campos[0].value)) {
-      for (var i = 0; i < emailuser.length; i++) {
-        if (campos[0].value === emailuser[i]) {
-          removeError(0);
-          return;
-        }
-      }
-    }
-    setError(0);
-  };
-  
-    
-  const senhaValidation = (): void => {
-    if ("BolsistasUOL" === campos[1].value) {
-      removeError(1);
-    } else {
-      setError(1);
-    }
-  };
   const handleSubmit = (event: FormEvent): void => {
     event.preventDefault();
-    senhaValidation();
-    userValidation();
+    postUserLogin(form).then((response) => {
+      if (response) {
+        localStorage.setItem('user', JSON.stringify(response));
+        navigate('/dashboard')
+      } else {
+        setError(true);
+      }
+      console.log(response);
+    })
   };
 
   return (
@@ -77,8 +53,6 @@ export default function Login(): JSX.Element {
           <section className="formulario">
             <h3>Login</h3>
             <form
-              action=""
-              method="get"
               className="formulario-login"
               onSubmit={handleSubmit}
             >
@@ -88,8 +62,12 @@ export default function Login(): JSX.Element {
                 id="user"
                 name="user"
                 placeholder="Usuário"
-                className="inputs required space"
+                className={error?'inputs space error' : 'inputs space'}
                 autoComplete="off"
+                value={form.email}
+                onChange={(event) => {
+                  setForm({ ...form, email: event.target.value })
+                }}
               />
               <br />
 
@@ -99,7 +77,11 @@ export default function Login(): JSX.Element {
                 id="password"
                 name="password"
                 placeholder="Senha"
-                className="inputs required space"
+                className={error?'inputs space error' : 'inputs space'}
+                value={form.password}
+                onChange={(event) => {
+                  setForm({ ...form, password: event.target.value })
+                }}
               />
               <br />
               <span
@@ -120,7 +102,7 @@ export default function Login(): JSX.Element {
           <section className="register">
             <p>
               Novo por aqui?&nbsp;
-              <a href="/dashboard">Registre-se</a>
+              <a href="/register">Registre-se</a>
             </p>
           </section>
         </div>

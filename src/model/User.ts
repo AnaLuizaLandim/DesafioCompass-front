@@ -7,5 +7,8 @@ export interface User {
     profile_photo: string
 }
 
-
+export interface UserLogin{
+    email: string,
+    password: string
+}
 //const post:Post = {}

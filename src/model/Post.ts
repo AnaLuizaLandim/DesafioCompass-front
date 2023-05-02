@@ -11,4 +11,5 @@ user: string,
 comment: string
 }
 
+
 //const post:Post = {}
