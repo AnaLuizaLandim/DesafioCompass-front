@@ -5,6 +5,7 @@ import { getAllUsers } from '../../service/ApiService';
 import { User } from '../../model/User';
 
 
+
 interface FormEvent extends React.FormEvent<HTMLFormElement> {}
 
 export default function Login(): JSX.Element {
@@ -33,6 +34,7 @@ export default function Login(): JSX.Element {
   };
 
   const userValidation = (): void => {
+   
     const emailuser = users.map((item, index) => item.email);
     const userlogin = campos[0].value;
     if (emailRegex.test(campos[0].value)) {
