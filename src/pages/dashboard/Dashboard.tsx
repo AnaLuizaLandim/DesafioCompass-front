@@ -31,7 +31,7 @@ export default function Dashboard() {
       <div className='main'>
         <div className='header-dash'>
           <a href='/dashboard'><i className="fa-solid fa-house"></i></a>
-          <h3> Home</h3>
+          <h3 className='title-header'> Home</h3>
           <h3 className='user-lol'>User</h3>
         </div>
         <div className='body'>
@@ -70,6 +70,9 @@ export default function Dashboard() {
                   <p className='post-description'>
                     {item.description}
                   </p>
+                  <div className='image-post'>
+                  <img src="https://letsflyaway.com.br/wp-content/uploads/2018/08/japao-sakura-templo-1200x700.jpg" alt=""></img>
+                  </div>
                   <div className='botoes'>
                   <button><i className="fa-solid fa-thumbs-up"></i>Curtir</button>
                   <button><i className="fa-regular fa-comment-dots"></i>Comentários</button>

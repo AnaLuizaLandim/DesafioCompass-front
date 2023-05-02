@@ -46,16 +46,23 @@
   border-color: #2e2f36;
 }
 
+
 .header-dash h3{
-    justify-content: center;
+  margin: 0;
+  padding: 0;
 }
-
 .header-dash i{
-    padding:1.5rem;
+  padding:0.9rem;
 }
 
-.user-lol{
-    margin-left: 80%;
+.header-dash .title-header{
+margin: 0;
+padding: 0.5rem 0;
+}
+
+.header-dash .user-lol{
+  margin-left: 80%;
+  padding: 0.5rem 0;
 }
 
 .body {
@@ -270,6 +277,7 @@ color: #75767D;
   height: 32px;
   border: 2px solid #2e2f36;
   font-family: 'Poppins';
+  padding: 0;
 }
 
 .imagem{
@@ -317,5 +325,28 @@ button i{
         width: 20rem;
         padding: 20px;
     }
+
+    .header-dash i{
+      padding:1.9rem;
+    }
+    
+    .header-dash .title-header{
+    margin: 0;
+    padding: 1.5rem 0;
+    }
+    
+    .header-dash .user-lol{
+      margin-left: 80%;
+      padding: 1.5rem 0;
+  }
 }
+.image-post{
+  margin: 1rem 0 0 0;
+}
+.image-post img{
+  margin-left: -2rem;
+  width: 44.125rem;
+  height: 18.75rem;
+}
+
 
