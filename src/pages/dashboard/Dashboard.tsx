@@ -57,14 +57,13 @@ export default function Dashboard() {
             </div>
           </div>
           <div className='topics'>
-            <div className='trend'>
+            <div className='trend friends'>
               <h3>Meus Amigos</h3>
               <ul>
-                <li>
-                  
-                </li>
+                {users.map((item,index) => (
+                  <li className='lista-d'>{item.name}</li>
+                ))}
               </ul>
-              <button className="trend-b">^</button>
             </div>
             <div className='trend'>
 
