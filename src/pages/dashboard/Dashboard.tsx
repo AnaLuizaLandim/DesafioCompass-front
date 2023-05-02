@@ -51,16 +51,50 @@ export default function Dashboard() {
               </form>
 
             </div>
-            
-            <div className='post'>
 
-            </div>
+
+            {posts.map((item, index) => (
+              <div className='post' key={index}>
+                <div className="card">
+                  <div className='foto-user'>
+                    <img className='perfil' src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a99d6e81-03cd-41f9-8532-f42459eaad6e/d9ezf52-b304a893-9b89-41c2-9613-673c842618df.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2E5OWQ2ZTgxLTAzY2QtNDFmOS04NTMyLWY0MjQ1OWVhYWQ2ZVwvZDllemY1Mi1iMzA0YTg5My05Yjg5LTQxYzItOTYxMy02NzNjODQyNjE4ZGYuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Yy1-8fo5Pzw6v-wyTGCPOf82z7acPfUzMdagNBCKb94' alt=''></img>
+                    <div className='column'>
+                    <h4>{item.user}</h4>
+                    <div className='description-post'>
+                    <i className="fa-regular fa-clock"></i><p className='textodebaixo'>12 minutos atrás de <span className='span-dash'>Paisagens Exuberantes</span></p>
+                  </div>
+                    </div>
+                  </div>
+                  <p className='post-description'>
+                    {item.description}
+                  </p>
+                  <div className='botoes'>
+                  <button><i className="fa-solid fa-thumbs-up"></i>Curtir</button>
+                  <button><i className="fa-regular fa-comment-dots"></i>Comentários</button>
+                  <button><i className="fa-solid fa-share-nodes"></i>Compartilhar</button>
+                  </div>
+                  <div className='textbox-comment'>
+                  <img src='https://meups.com.br/wp-content/uploads/2022/10/The-Witcher-6-900x503.jpg' className='imagem' alt=''></img>
+                  <input className="placeholder" type="text" name="" id="" placeholder='O que você está pensando?'/>
+                  </div>
+                  <div className="comments">
+                    {item.comments && item.comments.map((commentItem, commentIndex) => (
+                      <div className="comment" key={'comment' + commentIndex}>
+                        <h5>{commentItem.user}</h5>
+                        <p>{commentItem.comment}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+
           </div>
           <div className='topics'>
             <div className='trend friends'>
               <h3>Meus Amigos</h3>
-              <ul>
-                {users.map((item,index) => (
+              <ul className='ul-dash'>
+                {users.map((item, index) => (
                   <li className='lista-d'>{item.name}</li>
                 ))}
               </ul>
