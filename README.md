@@ -1,15 +1,15 @@
 # Desafio-Compass-2
 O diretório "src" (abreviação de "source") contém o código-fonte do projeto. Aqui estão os principais arquivos e pastas que você encontrará neste diretório:
 
-controllers/: esta pasta contém os controladores do seu aplicativo. Eles são responsáveis por lidar com as solicitações HTTP recebidas pelo seu servidor.
+controllers/: esta pasta contém os controladores do aplicativo. Eles são responsáveis por lidar com as solicitações HTTP recebidas pelo seu servidor.
 
-models/: esta pasta contém os modelos do seu aplicativo. Eles são responsáveis por representar os dados do seu aplicativo e interagir com o banco de dados.
+models/: esta pasta contém os modelos do aplicativo. Eles são responsáveis por representar os dados do seu aplicativo e interagir com o banco de dados.
 
-routes/: esta pasta contém as rotas do seu aplicativo. As rotas definem como as solicitações HTTP são manipuladas pelo seu servidor e quais controladores são chamados para lidar com elas.
+routes/: esta pasta contém as rotas do aplicativo. 
 
-services/: esta pasta contém os serviços do seu aplicativo. Eles são responsáveis por fornecer funcionalidades específicas para o seu aplicativo, como autenticação de usuários ou envio de e-mails.
+services/: esta pasta contém os serviços do aplicativo. Eles são responsáveis por fornecer funcionalidades específicas para o aplicativo.
 
-A pasta "constants" contém arquivos que armazenam valores constantes usados ​​em todo o projeto.
+constants/: contém arquivos que armazenam valores constantes usados ​​em todo o projeto.
 
 # Para instalar as dependências do projeto listadas no arquivo "package.json" e baixar os pacotes do "node_modules", siga os seguintes passos:
 
