@@ -13,6 +13,7 @@ environment/: é usada para armazenar arquivos de configuração específicos do
 
 pages/: contém as páginas de login, register e dashboard, além de sua estilização em CSS.
 
+
 # NPM INSTALL
 
 Para instalar as dependências do projeto listadas no arquivo "package.json" e baixar os pacotes do "node_modules", siga os seguintes passos:
