@@ -8,6 +8,17 @@ export const getAllPosts = () => {
 }
 //postagem
 export const savePost = (post: Post) => {
-    PostsData.posts.unshift(post); // adiciona o post no início da array
+    PostsData.posts = [post, ...PostsData.posts]; // adiciona o post no início da array
     return post;
 }
+
+// export const savePost = (post: Post) => {
+//     PostsData.posts.push(post);
+//     return post;
+// }
+
+
+// export const savePost = (post: Post) => {
+//     PostsData.posts.unshift(post); // adiciona o post no início da array
+//     return post;
+// }

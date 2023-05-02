@@ -55,6 +55,10 @@
   padding:0.9rem;
 }
 
+.header-dash a:visited{
+  color: white;
+}
+
 .header-dash .title-header{
 margin: 0;
 padding: 0.5rem 0;
