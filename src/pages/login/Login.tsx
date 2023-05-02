@@ -1,10 +1,22 @@
 import React from 'react';
 import './Login.css';
+import { useEffect, useState } from 'react'
+import { getAllUsers } from '../../service/ApiService';
+import { User } from '../../model/User';
 
 
 interface FormEvent extends React.FormEvent<HTMLFormElement> {}
 
 export default function Login(): JSX.Element {
+
+  const [users, setUsers] = useState([] as User[]);
+  useEffect(() => {
+    getAllUsers().then((response) => {
+      setUsers(response);
+      console.log(response);
+    })
+  }, [])
+
   const form = document.querySelector('form') as HTMLFormElement;
   const campos = document.querySelectorAll('.required') as NodeListOf<HTMLInputElement>;
   const span = document.querySelector('.span-required') as HTMLElement;
@@ -17,21 +29,30 @@ export default function Login(): JSX.Element {
 
   const removeError = (index: number): void => {
     campos[index].style.border = '';
-    const span = campos[index].nextElementSibling as HTMLElement;
     span.style.display = 'none';
   };
 
   const userValidation = (): void => {
+    const emailuser = users.map((item, index) => item.email);
     if (emailRegex.test(campos[0].value)) {
-      removeError(0);
-    } else {
-      setError(0);
+      for (var i = 0; i < emailuser.length; i++) {
+        if (campos[0].value === emailuser[i]) {
+          removeError(0);
+          return;
+        }
+      }
     }
+    setError(0);
   };
+  
     
   const senhaValidation = (): void => {
+    if ("BolsistasUOL" === campos[1].value) {
+      removeError(1);
+    } else {
+      setError(1);
+    }
   };
-
   const handleSubmit = (event: FormEvent): void => {
     event.preventDefault();
     senhaValidation();
