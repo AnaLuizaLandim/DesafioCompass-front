@@ -106,7 +106,10 @@ export default function Dashboard() {
               <h3>Meus Amigos</h3>
               <ul className='ul-dash'>
                 {users.map((item, index) => (
-                  <li className='lista-d'>{item.name}</li>
+                <div className='friend-user'>
+                <img src='https://meups.com.br/wp-content/uploads/2022/10/The-Witcher-6-900x503.jpg' className='imagem' alt=''></img>
+                <li className='lista-d'>{item.name}</li>
+                </div>
                 ))}
               </ul>
             </div>

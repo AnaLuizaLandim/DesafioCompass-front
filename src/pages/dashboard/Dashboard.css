@@ -187,7 +187,7 @@ padding: 0.5rem 0;
 .lista-d{
     list-style: none;
     margin: 0;
-    padding: 10px;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
 
 /*Posts*/
@@ -316,6 +316,24 @@ color: #75767D;
   padding: 0;
   margin: 0;
 }
+
+.image-post{
+  margin: 1rem 0 0 0;
+}
+.image-post img{
+  margin-left: -2rem;
+  width: 44.125rem;
+  height: 18.75rem;
+}
+
+.friend-user{
+  display: flex;
+}
+
+.friend-user .imagem{
+  margin-block-end: 1.5rem;
+}
+
 button i{
   padding-right: 0.5rem;
 }
@@ -340,13 +358,3 @@ button i{
       padding: 1.5rem 0;
   }
 }
-.image-post{
-  margin: 1rem 0 0 0;
-}
-.image-post img{
-  margin-left: -2rem;
-  width: 44.125rem;
-  height: 18.75rem;
-}
-
-
