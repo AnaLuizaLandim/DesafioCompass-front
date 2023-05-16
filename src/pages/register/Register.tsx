@@ -1,7 +1,42 @@
 import React from 'react';
 import '../register/Register.css'
+import { User, UserLogin } from '../../model/User';
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react'
+import { getAllUsers, postUserLogin } from '../../service/ApiService';
 
 export default function Register() {
+  interface FormEvent extends React.FormEvent<HTMLFormElement> { }
+
+    const navigate = useNavigate();
+    const [users, setUsers] = useState([] as User[]);
+    useEffect(() => {
+      getAllUsers().then((response) => {
+        setUsers(response);
+      })
+    }, [])
+  
+  
+    const [form, setForm] = useState({ email: '', password: '' } as UserLogin);
+    const [error, setError] = useState(false);
+  
+  
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  
+  
+    const handleSubmit = (event: FormEvent): void => {
+      event.preventDefault();
+      postUserLogin(form).then((response) => {
+        if (response) {
+          localStorage.setItem('user', JSON.stringify(response));
+          navigate('/dashboard')
+        } else {
+          setError(true);
+        }
+        console.log(response);
+      })
+    };
+  
   return (
     <div className="overflow-login">
       <div className="card-principal">
@@ -13,7 +48,7 @@ export default function Register() {
 
           <section className="formulario">
             <h3>Login</h3>
-            <form action="" method="get" className='formulario-register'>
+            <form action="" method="get" className='formulario-register' onSubmit={handleSubmit}>
               <input type="text" id="name" name="name" placeholder="Nome" className="inputs required input-register space" /><br/>
               <span className="span-required">Nome inválido, no mínimo 6 caracteres</span>
 
@@ -50,4 +85,5 @@ export default function Register() {
       </div>
     </div>
   )
-}
+  }
+

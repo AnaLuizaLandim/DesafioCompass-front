@@ -85,7 +85,7 @@ export default function Login(): JSX.Element {
               />
               <br />
               <span
-                className="span-required"
+                className={error?'error2' : 'span-required'}
                 style={{ textAlign: 'center' }}
               >
                 Usuário e/ou Senha Inválidos

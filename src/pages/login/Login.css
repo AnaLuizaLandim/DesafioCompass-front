@@ -30,9 +30,7 @@ div .alinhar{
     background-size:cover;
   }
 
-  span{
-    display: none;
-}
+
 
 .header{
     text-align: left;
@@ -75,8 +73,14 @@ form #password{
     border-radius: 2.875rem;
     color: #F5F5F5;
 }
-span{
+
+.span-required{
     display:none;
+}
+
+
+.error2{
+    display: block;
 }
 form #user{
     border: 0.125rem solid #F5F5F5;

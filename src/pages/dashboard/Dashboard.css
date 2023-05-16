@@ -101,7 +101,10 @@ padding: 0.5rem 0;
     color: #75767D;
     padding-inline-start: 20px;
 }
-
+.placeholder{
+  color: white;
+  padding-inline-start: 0.5rem !important;
+}
 .dash-b{
   box-sizing: border-box;
   margin-top:1rem;
