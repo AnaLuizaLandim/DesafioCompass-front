@@ -17,7 +17,7 @@ export default function Register() {
     }, [])
   
   
-    const [form, setForm] = useState({ email: '', password: '' } as UserLogin);
+    const [form, setForm] = useState({ email: '', password: '', name: '', user: '', birthdate:''  } as User);
     const [error, setError] = useState(false);
   
   
