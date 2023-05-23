@@ -1,6 +1,7 @@
 export const PostsData = {
     "posts": [
         {
+            "id": "1",
             "user": "anairschlinger",
             "post_date": "2023-04-22T10:15:00",
             "description": "A primavera chegou! 🌺",
@@ -18,6 +19,7 @@ export const PostsData = {
             "url_imagem": "https://exemplo.com/imagens/ana1.jpg"
         },
         {
+            "id": "2",
             "user": "camilabarcellos",
             "post_date": "2023-04-20T17:30:00",
             "description": "Finalmente terminei de ler este livro incrível! ",
@@ -34,6 +36,7 @@ export const PostsData = {
             ]
         },
         {
+            "id": "3",
             "user": "denerborges",
             "post_date": "2023-04-19T12:00:00",
             "description": "Praia no outono é tudo de bom! ",
@@ -51,12 +54,14 @@ export const PostsData = {
             "url_imagem": "https://exemplo.com/imagens/dener1.jpg"
         },
         {
+            "id": "4",
             "user": "diegosuarez",
             "post_date": "2023-04-18T14:45:00",
             "description": "Mais um dia de trabalho concluído! ",
             "likes": 6
         },
         {
+            "id": "5",
             "user": "emanuellescortegagna",
             "post_date": "2023-04-17T09:30:00",
             "description": "Bom dia pessoal! ",
@@ -74,6 +79,7 @@ export const PostsData = {
             "url_imagem": "https://exemplo.com/imagens/emanuelle1.jpg"
         },
         {
+            "id": "6",
             "user": "gabrielfiss",
             "post_date": "2023-04-16T21:00:00",
             "description": "Noite de jogos com a galera! ",
@@ -90,6 +96,7 @@ export const PostsData = {
             ]
         },
         {
+            "id": "7",
             "user": "gabrielgarcia",
             "post_date": "2023-04-15T16:20:00",
             "description": "Adoro visitar museus e ver obras incríveis como essa! ",
@@ -107,6 +114,7 @@ export const PostsData = {
             "url_imagem": "https://exemplo.com/imagens/gabriel1.jpg"
         },
         {
+            "id": "8",
             "user": "isadorabrito",
             "post_date": "2023-04-14T08:00:00",
             "description": "Bom dia, galera! ",
@@ -123,6 +131,7 @@ export const PostsData = {
             ]
         },
         {
+            "id": "9",
             "user": "josevalerio",
             "post_date": "2023-04-12T19:30:00",
             "description": "Noite de futebol com a turma! ",
@@ -139,6 +148,7 @@ export const PostsData = {
             ]
         },
         {
+            "id": "10",
             "user": "josielmatos",
             "post_date": "2023-04-11T11:10:00",
             "description": "Trabalhando de casa hoje! ",
@@ -155,6 +165,7 @@ export const PostsData = {
             ]
         },
         {
+            "id": "11",
             "user": "kaianecardozo",
             "post_date": "2023-04-10T14:00:00",
             "description": "Meu novo visual! ",
@@ -172,6 +183,7 @@ export const PostsData = {
             "url_imagem": "https://exemplo.com/imagens/kaiane1.jpg"
         },
         {
+            "id": "12",
             "user": "luizsureto",
             "post_date": "2023-04-08T21:15:00",
             "description": "Sextou! ",
@@ -188,6 +200,7 @@ export const PostsData = {
             ]
         },
         {
+            "id": "13",
             "user": "victorpithan",
             "post_date": "2023-04-07T13:00:00",
             "description": "Dia de almoçar com os amigos do trabalho! ",
@@ -205,6 +218,7 @@ export const PostsData = {
             "url_imagem": "https://exemplo.com/imagens/victor1.jpg"
         },
         {
+            "id": "14",
             "user": "viniciusperes",
             "post_date": "2023-04-05T17:30:00",
             "description": "Dia de praia com a galera! ",
@@ -222,6 +236,7 @@ export const PostsData = {
             "url_imagem": "https://exemplo.com/imagens/vinicius1.jpg"
         },
         {
+            "id": "15",
             "user": "yuricaetano",
             "post_date": "2023-04-03T22:00:00",
             "description": "Noite de karaokê com os amigos! ",

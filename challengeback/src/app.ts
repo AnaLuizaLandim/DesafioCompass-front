@@ -1,8 +1,9 @@
+import { openDb } from './repository/configdb';
 import express, { Router } from 'express';
 import { AppRoutes } from './routes/routes';
 import cors from 'cors';
 const app = express();
-
+openDb();
 app.use(express.json());
 
 
