@@ -4,8 +4,8 @@ import { getAllPostsController, savePostController } from "../controller/post-co
 
 export const AppRoutes = Router();
 
-AppRoutes.route('/user').get(getAllUsersController);
-AppRoutes.route('/post')
+AppRoutes.route('/api/v1/users').get(getAllUsersController);
+AppRoutes.route('/api/v1/posts')
     .get(getAllPostsController)
     .post(savePostController);
 AppRoutes.route('/login').post(loginController);
