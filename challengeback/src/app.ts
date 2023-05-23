@@ -1,12 +1,14 @@
-import { openDb } from './repository/configdb';
 import express, { Router } from 'express';
 import { AppRoutes } from './routes/routes';
 import cors from 'cors';
+import { InsertTable } from './controller/constants-controller';
+import CreateTablePosts from './controller/post-controller';
 const app = express();
-openDb();
+CreateTablePosts();
+InsertTable();
 app.use(express.json());
-
-
+ 
+  
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
