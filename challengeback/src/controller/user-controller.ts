@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { getAllUsers, login } from "../service/user-service"
-import { openDb } from "../repository/configdb";
+import { openDbLocal } from "../repository/configdb";
 
 export const getAllUsersController =(req:Request,res:Response<any>)=>{
     const response = getAllUsers();
@@ -13,7 +13,7 @@ export const loginController =(req:Request<{email:string, password:string}>,res:
 }
 
 export default async function CreateTableUsers() {
-    openDb().then(db=>{db.exec(`
+    openDbLocal().then(db=>{db.exec(`
     CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT,
@@ -28,7 +28,7 @@ export default async function CreateTableUsers() {
 }
 
 export async function InsertUser(user: any) {
-    openDb().then(db => {
+    openDbLocal().then(db => {
         db.run(
           `
           INSERT INTO users (id, name, user, birthdate, email, password, profile_photo)

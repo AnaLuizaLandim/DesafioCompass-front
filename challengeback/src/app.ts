@@ -2,7 +2,7 @@ import express, { Router } from 'express';
 import { AppRoutes } from './routes/routes';
 import cors from 'cors';
 import { InsertTable } from './controller/constants-controller';
-import CreateTablePosts from './controller/post-controller';
+import CreateTablePosts from './service/post-service';
 const app = express();
 CreateTablePosts();
 InsertTable();
