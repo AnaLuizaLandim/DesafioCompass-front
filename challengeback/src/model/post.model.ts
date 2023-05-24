@@ -8,6 +8,7 @@ export interface Post {
         url_imagem: string
 }
 export interface Comment{
+    post_id: string,
     user: string,
     comment: string
 }

@@ -12,4 +12,11 @@ export interface UserLogin{
     password: string
 }
 
+export interface UserRegister{
+    name: string,
+    user: string,
+    birthdate: string,
+    email: string,
+    password: string
+}
 //const post:Post = {}

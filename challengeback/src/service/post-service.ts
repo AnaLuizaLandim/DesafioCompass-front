@@ -1,11 +1,59 @@
 import { Post } from "../model/post.model";
 import { openDbLocal } from "../repository/configdb";
 import sqlite3 from "sqlite3";
+import { Comment } from "../model/post.model";
 
 // export const getAllPosts = () => {
 //     const data = PostsData.posts;
 //     return data;
 // }
+export const saveComment = async (comment: Comment) => {
+  const db = new sqlite3.Database('./database.db');
+  const query = `INSERT INTO comments (post_id, user, comment) VALUES (?, ?, ?)`;
+  const params = [comment.user, comment.comment, comment.post_id];
+
+  return new Promise((resolve, reject) => {
+    db.run(query, params, function (error) {
+      db.close();
+      if (error) {
+        reject(error);
+      } else {
+        const commentId = this.lastID;
+        const getCommentQuery = `SELECT * FROM comments WHERE id = ?`;
+        const getCommentParams = [commentId];
+
+        db.get(getCommentQuery, getCommentParams, (error, row) => {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(row);
+          }
+        });
+      }
+    });
+  });
+};
+export function deleteCommentById(id: number) {
+  return new Promise((resolve, reject) => {
+    const db = new sqlite3.Database('./database.db');
+    const query = `DELETE FROM comments WHERE id = ?`;
+    const params = [id];
+
+    db.run(query, params, function (error) {
+      db.close();
+      if (error) {
+        reject(error);
+      } else {
+        if (this.changes > 0) {
+          resolve({ id });
+        } else {
+          reject(new Error('Comentário não encontrado'));
+        }
+      }
+    });
+  });
+}
+
 export function deletePostById(id: number) {
   const db = new sqlite3.Database('./database.db');
   const query = `DELETE FROM posts WHERE id = ?`;
@@ -131,6 +179,21 @@ export function getCommentById(id: number, post_id: number) {
   });
 }
 
+export function getCommentById2(id: number) {
+  const db = new sqlite3.Database('./database.db');
+  const query = `SELECT * FROM comments WHERE id = ?`;
+
+  return new Promise((resolve, reject) => {
+    db.get(query, [id], (error, row) => {
+      db.close();
+      if (error) {
+        reject(error);
+      } else {
+        resolve(row);
+      }
+    });
+  });
+}
 export function getAllComments() {
   const db = new sqlite3.Database('./database.db');
   const query = `SELECT * FROM comments`;

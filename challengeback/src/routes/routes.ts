@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { deleteUserByIdController, getAllUsersController, getUserByIdController, loginController, saveUserController, updateUserByIdController } from "../controller/user-controller";
-import { deletePostByIdController, getAllCommentController, getAllPostsController, getPostCommentController, savePostController, updatePostsByIdController } from "../controller/post-controller";
+import { deleteCommentByIdController, deletePostByIdController, getAllCommentController, getAllPostsController, getPostCommentController, saveCommentController, savePostController, updatePostsByIdController } from "../controller/post-controller";
 import { getPostByIdController } from "../controller/post-controller";
 export const AppRoutes = Router();
 
@@ -28,12 +28,15 @@ AppRoutes.route('/api/v1/posts/:id')
 //rotas de comentarios
 AppRoutes.route('/api/v1/posts/:id/comments/:post_id')
     .get(getPostCommentController)
-    .delete()
-    .post()
 
-AppRoutes.route('/api/v1/comments')
+AppRoutes.route('/api/v1/posts/:post_id/comments')
+.post(saveCommentController)
+
+AppRoutes.route('/api/v1/comments/')
     .get(getAllCommentController)
 
+AppRoutes.route('/api/v1/posts/comments/:id')
+.delete(deleteCommentByIdController)
 
 //login
 AppRoutes.route('/login').post(loginController);

@@ -1,7 +1,45 @@
 import { Request, Response } from "express";
-import { deletePostById, getAllComments, getAllPosts, getCommentById, getPostById, savePost, updatePostById } from "../service/post-service";
+import { deleteCommentById, deletePostById, getAllComments, getAllPosts, getCommentById, getCommentById2, getPostById, saveComment, savePost, updatePostById } from "../service/post-service";
 import { Post } from "../model/post.model";
+import { Comment } from "../model/post.model";
 
+export const saveCommentController = async (req: Request<Comment>, res: Response<any>) => {
+  try {
+    const comment: Comment = req.body;
+
+    const savedComment = await saveComment(comment);
+
+    res.json(savedComment);
+  } catch (err) {
+    res.status(500).json({
+      error: 'Erro ao salvar o comentário'
+    });
+  }
+};
+
+export const deleteCommentByIdController = async (req: Request<any>, res: Response<any>) => {
+  try {
+    const id = Number(req.params.id);
+
+    const comment = await getCommentById2(id);
+    if (!comment) {
+      res.status(404).json({
+        error: 'Comentário não encontrado'
+      });
+      return;
+    }
+
+    await deleteCommentById(id);
+
+    res.json({
+      message: 'Comentário excluído com sucesso'
+    });
+  } catch (err) {
+    res.status(500).json({
+      error: 'Erro ao excluir o comentário'
+    });
+  }
+};
 export const deletePostByIdController = async (req: Request<Post>, res: Response<any>) => {
   try {
     const id = Number(req.params.id);
@@ -59,7 +97,7 @@ export const getAllPostsController = async (req: Request, res: Response<any>) =>
     res.json(response);
   } catch (err) {
     res.status(500).json({
-      error: 'Erro ao obter os usuarios'
+      error: 'Erro ao obter os posts'
     });
   }
 }
