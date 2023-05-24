@@ -1,9 +1,97 @@
 import { UserData } from "../constants/user-data.constant"
 import  sqlite3  from "sqlite3";
 import { openDbLocal } from "../repository/configdb";
+import { User } from "../model/user.model";
 
-export const getAllUsers =()=>{
-    return UserData.users;
+// export const getAllUsers =()=>{
+//     return UserData.users;
+// }
+export function deleteUserById(id: number) {
+  return new Promise((resolve, reject) => {
+    const db = new sqlite3.Database('./database.db');
+    const query = `DELETE FROM users WHERE id = ?`;
+    const params = [id];
+
+    db.run(query, params, function (error) {
+      db.close();
+      if (error) {
+        reject(error);
+      } else {
+        if (this.changes > 0) {
+          resolve({ id });
+        } else {
+          reject(new Error('User não encontrado'));
+        }
+      }
+    });
+  });
+}
+
+export function updateUserById(id: number, updatedFields: Partial<User>) {
+  const db = new sqlite3.Database('./database.db');
+  const { name, birthdate, email, password, profile_photo, user } = updatedFields;
+  const query = `UPDATE users SET name = ?, birthdate = ?, email = ?, password = ?, profile_photo = ?, user = ? WHERE id = ?`;
+  const params = [name, birthdate, email, password, profile_photo, user, id];
+  return new Promise((resolve, reject) => {
+    db.run(query, params, function (error) {
+      db.close();
+      if (error) {
+        reject(error);
+      } else {
+        if (this.changes > 0) {
+          resolve({ id, ...updatedFields });
+        } else {
+          reject(new Error('Usuário não encontrado'));
+        }
+      }
+    });
+  });
+}
+
+
+
+export const saveUser = async (user: User) => {
+  const db = new sqlite3.Database('./database.db');
+  const query = `INSERT INTO users (name, user, birthdate, email, password, profile_photo) VALUES (?, ?, ?, ?, ?, ?)`;
+  const params = [user.name, user.user, user.birthdate, user.email, user.password, user.profile_photo];
+
+  return new Promise((resolve, reject) => {
+    db.run(query, params, function (error) {
+      db.close();
+      if (error) {
+        reject(error);
+      } else {
+        const userId = this.lastID;
+        const getUserQuery = `SELECT * FROM users WHERE id = ?`;
+        const getUserParams = [userId];
+
+        db.get(getUserQuery, getUserParams, (error, row) => {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(row);
+          }
+        });
+
+      }
+    });
+  });
+};
+
+export function getAllUsers() {
+    const db = new sqlite3.Database('./database.db');
+    const query = `SELECT * FROM users`;
+  
+    return new Promise((resolve, reject) => {
+      db.all(query, (error, rows) => {
+        db.close();
+        if (error) {
+          reject(error);
+        } else {
+          resolve(rows);
+        }
+      });
+    });
 }
 
 export const login =(value:{email: string, password: string})=>{
