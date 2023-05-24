@@ -35,10 +35,10 @@ export function getPostById(id: number) {
 
 export function getCommentById(id: number, post_id: number) {
     const db = new sqlite3.Database('./database.db');
-    const query = `SELECT * FROM comments WHERE post_id = ? AND id = ?`;
+    const query = `SELECT * FROM comments WHERE id = ? AND post_id = ?`;
   
     return new Promise((resolve, reject) => {
-      db.get(query, [post_id, id], (error, row) => {
+      db.get(query, [id,post_id], (error, row) => {
         db.close();
         if (error) {
           reject(error);

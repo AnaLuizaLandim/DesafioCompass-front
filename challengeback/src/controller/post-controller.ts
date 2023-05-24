@@ -32,7 +32,7 @@ export const getPostCommentController = async (req: Request, res: Response<any>)
         const id = Number(req.params.id);
         console.log(id);
         console.log(post_id);
-       const response = await getCommentById(id, post_id);
+       const response = await getCommentById(post_id, id);
        res.json(response);
     }
     catch(err){
