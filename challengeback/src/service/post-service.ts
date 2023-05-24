@@ -32,6 +32,22 @@ export function getPostById(id: number) {
         })     
     })
 }
+
+export function getCommentById(id: number, post_id: number) {
+    const db = new sqlite3.Database('./database.db');
+    const query = `SELECT * FROM comments WHERE post_id = ? AND id = ?`;
+  
+    return new Promise((resolve, reject) => {
+      db.get(query, [post_id, id], (error, row) => {
+        db.close();
+        if (error) {
+          reject(error);
+        } else {
+          resolve(row);
+        }
+      });
+    });
+  }
 export default async function CreateTablePosts() {
     openDbLocal().then(db=>{db.exec(`
     CREATE TABLE IF NOT EXISTS posts (

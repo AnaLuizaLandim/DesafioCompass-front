@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
-import { getAllUsers, login } from "../service/user-service"
+import { getAllUsers, getUserById, login } from "../service/user-service"
 import { openDbLocal } from "../repository/configdb";
+import  sqlite3  from "sqlite3";
 
 export const getAllUsersController =(req:Request,res:Response<any>)=>{
     const response = getAllUsers();
@@ -12,30 +13,15 @@ export const loginController =(req:Request<{email:string, password:string}>,res:
     res.json(response);
 }
 
-export default async function CreateTableUsers() {
-    openDbLocal().then(db=>{db.exec(`
-    CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT,
-            user TEXT,
-            birthdate DATE,
-            email TEXT,
-            password TEXT,
-            profile_photo TEXT
-    )
-  `)
-})
-}
-
-export async function InsertUser(user: any) {
-    openDbLocal().then(db => {
-        db.run(
-          `
-          INSERT INTO users (id, name, user, birthdate, email, password, profile_photo)
-          VALUES (?, ?, ?, ?, ?, ?, ?)
-          `,
-          [user.id, user.name, user.user, user.birthdate, user.email, user.password, user.profile_photo]
-        );
-      });
+export const getUserByIdController = async (req: Request, res: Response<any>)=> {
+    try{
+       const id = Number(req.params.id);
+       const response = await getUserById(id);
+       res.json(response);
     }
-
+    catch(err){
+       res.status(500).json({
+           error: 'Id não encontrado'
+       })
+    }
+}

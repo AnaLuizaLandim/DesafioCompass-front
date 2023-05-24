@@ -1,8 +1,7 @@
 import { Request, Response } from "express";
-import { getAllPosts, getPostById, savePost } from "../service/post-service";
+import { getAllPosts, getCommentById, getPostById, savePost } from "../service/post-service";
 import { Post } from "../model/post.model";
 import { openDbLocal } from "../repository/configdb";
-
 
 export const getAllPostsController = (req: Request, res: Response<any>) => {
     const response = getAllPosts();
@@ -27,7 +26,21 @@ export const getPostByIdController = async (req: Request, res: Response<any>)=> 
  }
 }
 
-
+export const getPostCommentController = async (req: Request, res: Response<any>)=> {
+    try{
+        const post_id = Number(req.params.post_id);
+        const id = Number(req.params.id);
+        console.log(id);
+        console.log(post_id);
+       const response = await getCommentById(id, post_id);
+       res.json(response);
+    }
+    catch(err){
+       res.status(500).json({
+           error: 'Id não encontrado'
+       })
+    }
+   }
   
 
 
