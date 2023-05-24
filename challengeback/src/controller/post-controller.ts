@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
-import { getAllPosts, getCommentById, getPostById, savePost } from "../service/post-service";
+import { getAllComments, getAllPosts, getCommentById, getPostById, savePost } from "../service/post-service";
 import { Post } from "../model/post.model";
-import { openDbLocal } from "../repository/configdb";
+
+
 
 export const getAllPostsController = (req: Request, res: Response<any>) => {
     const response = getAllPosts();
@@ -41,6 +42,18 @@ export const getPostCommentController = async (req: Request, res: Response<any>)
        })
     }
    }
+
+   export const getAllCommentController = async (req: Request, res: Response<any>) => {
+    try {
+        const response = await getAllComments();
+      res.json(response);
+    } catch (err) {
+      res.status(500).json({
+        error: 'Erro ao obter os comentários'
+      });
+    }
+  };
+
+
+
   
-
-

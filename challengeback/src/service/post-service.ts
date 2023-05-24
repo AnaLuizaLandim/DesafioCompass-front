@@ -2,6 +2,7 @@ import { PostsData } from "../constants/posts.constant";
 import { Post } from "../model/post.model";
 import { openDbLocal } from "../repository/configdb";
 import  sqlite3  from "sqlite3";
+
 export const getAllPosts = () => {
     const data = PostsData.posts;
     return data;
@@ -48,6 +49,24 @@ export function getCommentById(id: number, post_id: number) {
       });
     });
   }
+
+  export function getAllComments() {
+    const db = new sqlite3.Database('./database.db');
+    const query = `SELECT * FROM comments`;
+  
+    return new Promise((resolve, reject) => {
+      db.all(query, (error, rows) => {
+        db.close();
+        if (error) {
+          reject(error);
+        } else {
+          resolve(rows);
+        }
+      });
+    });
+  }
+
+
 export default async function CreateTablePosts() {
     openDbLocal().then(db=>{db.exec(`
     CREATE TABLE IF NOT EXISTS posts (
