@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { getAllComments, getAllPosts, sendPost } from '../../service/ApiService';
-import { Comment, Post } from '../../model/Post';
+import { getAllPosts, sendPost } from '../../service/ApiService';
+import { Post } from '../../model/Post';
 import { getAllUsers } from '../../service/ApiService';
 import { User } from '../../model/User';
 import '../dashboard/Dashboard.css';
@@ -11,16 +11,6 @@ export default function Dashboard() {
    getListPosts();
   }, [])
 
-  const [comments, SetComments] = useState([] as Comment[]);
-  useEffect(() => {
-   getListComments();
-  }, [])
-
-  const getListComments = ()=>{
-    getAllComments().then((response) => {
-      SetComments(response);
-    })
-  }
   const getListPosts = ()=>{
     getAllPosts().then((response) => {
       setPosts(response);
@@ -115,7 +105,7 @@ export default function Dashboard() {
                   </div>
                   <div className="comments">
                     <p className='all-comments'>Todos os comentários</p>
-                    {item && item.comments.map((commentItem, commentIndex) => (
+                    {item.comments && item.comments.map((commentItem, commentIndex) => (
                       <div className="comment" key={'comment' + commentIndex}>
                         <div className='foto-user'>
                           <img src='https://sm.ign.com/ign_br/screenshot/default/ign-wiki-witcher-broken-flower-1_vn1m.jpg' className='image-comment' alt=''></img>
