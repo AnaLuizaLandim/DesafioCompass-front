@@ -8,6 +8,7 @@ import { User } from "../model/user.model";
 // }
 
 
+
 export const deleteUserByIdController = async (req: Request<User>, res: Response<any>) => {
   try {
     const id = Number(req.params.id);
@@ -48,6 +49,7 @@ export const updateUserByIdController = async (req: Request<User>, res: Response
     const updatedUser = { ...user, ...updatedFields };
     const response = await updateUserById(id, updatedFields);
 
+
     res.json(response);
   } catch (err) {
     res.status(500).json({
@@ -55,6 +57,7 @@ export const updateUserByIdController = async (req: Request<User>, res: Response
     });
   }
 };
+
 
 export const saveUserController = async (req: Request<User>, res: Response<any>) => {
   try {

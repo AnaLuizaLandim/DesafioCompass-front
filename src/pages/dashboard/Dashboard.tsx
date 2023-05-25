@@ -102,9 +102,13 @@ export default function Dashboard() {
                   <p className='post-description'>
                     {item.description}
                   </p>
-                  <div className='image-post'>
-                    <img src="https://letsflyaway.com.br/wp-content/uploads/2018/08/japao-sakura-templo-1200x700.jpg" alt=""></img>
-                  </div>
+                  {item.url_imagem!=="" && (
+                    <div className="image-post" key={item.url_imagem}>
+                      <img src={item.url_imagem} alt="" />
+                    </div>
+                  )}
+
+
                   <div className='botoes'>
                     <button><i className="fa-solid fa-thumbs-up"></i>Curtir</button>
                     <button><i className="fa-regular fa-comment-dots"></i>Comentários</button>
@@ -138,7 +142,7 @@ export default function Dashboard() {
               <h3>Meus Amigos</h3>
               <ul className='ul-dash'>
                 {users
-                  .filter(item => item.user !== loggedUser.user) 
+                  .filter(item => item.user !== loggedUser.user)
                   .map((item, index) => (
                     <div className='friend-user' key={index}>
                       <img src='https://meups.com.br/wp-content/uploads/2022/10/The-Witcher-6-900x503.jpg' className='imagem' alt='' />
