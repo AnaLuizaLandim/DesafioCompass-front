@@ -137,14 +137,31 @@ export const savePost = async (post: Post) => {
           if (error) {
             reject(error);
           } else {
-            resolve(row);
+            const newPost = {
+              id: row.id,
+              user: row.user,
+              post_date: row.post_date,
+              description: row.description,
+              likes: row.likes,
+              url_imagem: row.url_imagem,
+              comments: []
+            };
+
+            db.all('SELECT * FROM posts', (error, rows) => {
+              if (error) {
+                reject(error);
+              } else {
+                const updatedPosts = [newPost, ...rows];
+                resolve(updatedPosts);
+              }
+            });
           }
         });
-
       }
     });
   });
 };
+
 
 export function getPostById(id: number) {
 

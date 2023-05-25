@@ -117,16 +117,19 @@ export const getAllPostsController = async (req: Request, res: Response<any>) =>
 
 export const savePostController = async (req: Request<Post>, res: Response<any>) => {
   try {
-    let response: Post[] = []; // Inicializa como uma array vazia
     const savedPost = await savePost(req.body) as Post; // Conversão de tipo para Post
-    response.unshift(savedPost);
-    res.json(response);
+
+    const posts: Post[] = await getAllPosts() as Post[]; // Obtenha a lista completa de posts atualizada
+    posts.unshift(savedPost); // Adicione o novo post no início da array
+
+    res.json(posts);
   } catch (err) {
     res.status(500).json({
       error: 'Erro ao salvar o post'
     });
   }
 };
+
 
 
 

@@ -72,21 +72,24 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-size: 1rem;
 
 }
-
-@media screen and (min-height:1024px){
+.span-required2{
+  display: block;
+  color: yellow;
+  font-size: 12px;
+}
+.error-register{
+  border-color: yellow !important;
+}
+@media screen and (min-height:1000px){
     .card-principal{
     min-height: 1024px;
     }
-    .box-register{
-        margin: auto;
-    }
+   
 }
 
 @media screen and (min-width:1150px){
     .card-principal{
         min-height: 1200px;
-    }
-    .box-register{
-        margin: auto;
+        height: 100%;
     }
 }
