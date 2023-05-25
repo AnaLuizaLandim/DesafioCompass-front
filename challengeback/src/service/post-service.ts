@@ -78,8 +78,29 @@ export function deletePostById(id: number) {
 export function updatePostById(id: number, updatedFields: Partial<Post>) {
   const db = new sqlite3.Database('./database.db');
   const { post_date, description, likes, url_imagem } = updatedFields;
-  const query = `UPDATE posts SET post_date = ?, description = ?, likes = ?, url_imagem = ? WHERE id = ?`;
-  const params = [post_date, description, likes, url_imagem, id];
+  let query = 'UPDATE posts SET';
+  const params:any = [];
+  if (post_date !== undefined) {
+    query += ' post_date = ?,';
+    params.push(post_date);
+  }
+  if (description !== undefined) {
+    query += ' description = ?,';
+    params.push(description);
+  }
+  if (likes !== undefined) {
+    query += ' likes = ?,';
+    params.push(likes);
+  }
+  if (url_imagem !== undefined) {
+    query += ' url_imagem = ?,';
+    params.push(url_imagem);
+  }
+  // Remove a vírgula extra do final da consulta
+  query = query.slice(0, -1);
+  query += ' WHERE id = ?';
+  params.push(id);
+
   return new Promise((resolve, reject) => {
     db.run(query, params, function (error) {
       db.close();
