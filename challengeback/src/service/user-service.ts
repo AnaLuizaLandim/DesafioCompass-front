@@ -27,11 +27,41 @@ export function deleteUserById(id: number) {
   });
 }
 
+
 export function updateUserById(id: number, updatedFields: Partial<User>) {
   const db = new sqlite3.Database('./database.db');
   const { name, birthdate, email, password, profile_photo, user } = updatedFields;
-  const query = `UPDATE users SET name = ?, birthdate = ?, email = ?, password = ?, profile_photo = ?, user = ? WHERE id = ?`;
-  const params = [name, birthdate, email, password, profile_photo, user, id];
+  let query = 'UPDATE users SET ';
+  const params:any = [];
+
+  if (name !== undefined) {
+    query += 'name = ?, ';
+    params.push(name);
+  }
+  if (birthdate !== undefined) {
+    query += 'birthdate = ?, ';
+    params.push(birthdate);
+  }
+  if (email !== undefined) {
+    query += 'email = ?, ';
+    params.push(email);
+  }
+  if (password !== undefined) {
+    query += 'password = ?, ';
+    params.push(password);
+  }
+  if (profile_photo !== undefined) {
+    query += 'profile_photo = ?, ';
+    params.push(profile_photo);
+  }
+  if (user !== undefined) {
+    query += 'user = ?, ';
+    params.push(user);
+  }
+
+  query = query.slice(0, -2) + ' WHERE id = ?';
+  params.push(id);
+
   return new Promise((resolve, reject) => {
     db.run(query, params, function (error) {
       db.close();
@@ -47,6 +77,7 @@ export function updateUserById(id: number, updatedFields: Partial<User>) {
     });
   });
 }
+
 
 
 
