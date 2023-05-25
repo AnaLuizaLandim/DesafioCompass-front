@@ -117,7 +117,9 @@ export const getAllPostsController = async (req: Request, res: Response<any>) =>
 
 export const savePostController = async (req: Request<Post>, res: Response<any>) => {
   try {
-    const response = await savePost(req.body);
+    let response: Post[] = []; // Inicializa como uma array vazia
+    const savedPost = await savePost(req.body) as Post; // Conversão de tipo para Post
+    response.unshift(savedPost);
     res.json(response);
   } catch (err) {
     res.status(500).json({
@@ -125,6 +127,9 @@ export const savePostController = async (req: Request<Post>, res: Response<any>)
     });
   }
 };
+
+
+
 
 
 export const getPostByIdController = async (req: Request, res: Response<any>) => {
