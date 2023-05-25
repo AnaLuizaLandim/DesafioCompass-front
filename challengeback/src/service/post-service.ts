@@ -147,12 +147,10 @@ export const savePost = async (post: Post) => {
               comments: []
             };
 
-            // Obtenha a array atual de posts do banco de dados
             db.all('SELECT * FROM posts', (error, rows) => {
               if (error) {
                 reject(error);
               } else {
-                // Adicione o novo post no início da array
                 const updatedPosts = [newPost, ...rows];
                 resolve(updatedPosts);
               }
