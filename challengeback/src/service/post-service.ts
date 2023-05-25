@@ -137,14 +137,33 @@ export const savePost = async (post: Post) => {
           if (error) {
             reject(error);
           } else {
-            resolve(row);
+            const newPost = {
+              id: row.id,
+              user: row.user,
+              post_date: row.post_date,
+              description: row.description,
+              likes: row.likes,
+              url_imagem: row.url_imagem,
+              comments: []
+            };
+
+            // Obtenha a array atual de posts do banco de dados
+            db.all('SELECT * FROM posts', (error, rows) => {
+              if (error) {
+                reject(error);
+              } else {
+                // Adicione o novo post no início da array
+                const updatedPosts = [newPost, ...rows];
+                resolve(updatedPosts);
+              }
+            });
           }
         });
-
       }
     });
   });
 };
+
 
 export function getPostById(id: number) {
 

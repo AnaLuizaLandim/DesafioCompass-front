@@ -8,10 +8,10 @@ import imagem from '../../assets/imgs/compass.uol_Negativo 1.png'
 export default function Dashboard() {
   const [posts, setPosts] = useState([] as Post[]);
   useEffect(() => {
-   getListPosts();
+    getListPosts();
   }, [])
 
-  const getListPosts = ()=>{
+  const getListPosts = () => {
     getAllPosts().then((response) => {
       setPosts(response);
     })
@@ -19,10 +19,10 @@ export default function Dashboard() {
 
   const [Data, setData] = useState([] as Post[]);
   useEffect(() => {
-   getListData();
+    getListData();
   }, [])
 
-  const getListData = ()=>{
+  const getListData = () => {
     getAllData().then((response) => {
       setData(response);
     })
@@ -49,8 +49,8 @@ export default function Dashboard() {
       comments: [],
       url_imagem: ''
     }
-    sendPost(postToSend).then((response)=>{
-        getListPosts();
+    sendPost(postToSend).then((response) => {
+      getListPosts();
     })
   };
 
@@ -137,12 +137,15 @@ export default function Dashboard() {
             <div className='trend friends'>
               <h3>Meus Amigos</h3>
               <ul className='ul-dash'>
-                {users.map((item, index) => (
-                  <div className='friend-user'>
-                    <img src='https://meups.com.br/wp-content/uploads/2022/10/The-Witcher-6-900x503.jpg' className='imagem' alt=''></img>
-                    <li className='lista-d'>{item.name}</li>
-                  </div>
-                ))}
+                {users
+                  .filter(item => item.user !== loggedUser.user) 
+                  .map((item, index) => (
+                    <div className='friend-user' key={index}>
+                      <img src='https://meups.com.br/wp-content/uploads/2022/10/The-Witcher-6-900x503.jpg' className='imagem' alt='' />
+                      <li className='lista-d'>{item.name}</li>
+                    </div>
+                  ))
+                }
               </ul>
             </div>
             <div className='trend'>
