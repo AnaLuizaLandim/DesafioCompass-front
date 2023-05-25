@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getAllPosts, sendPost } from '../../service/ApiService';
+import { getAllData, getAllPosts, sendPost } from '../../service/ApiService';
 import { Post } from '../../model/Post';
 import { getAllUsers } from '../../service/ApiService';
 import { User } from '../../model/User';
@@ -14,6 +14,17 @@ export default function Dashboard() {
   const getListPosts = ()=>{
     getAllPosts().then((response) => {
       setPosts(response);
+    })
+  }
+
+  const [Data, setData] = useState([] as Post[]);
+  useEffect(() => {
+   getListData();
+  }, [])
+
+  const getListData = ()=>{
+    getAllData().then((response) => {
+      setData(response);
     })
   }
   const [users, setUsers] = useState([] as User[]);
@@ -76,7 +87,7 @@ export default function Dashboard() {
             </div>
 
 
-            {posts.map((item, index) => (
+            {Data.map((item, index) => (
               <div className='post' key={index}>
                 <div className="card">
                   <div className='foto-user'>

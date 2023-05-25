@@ -10,6 +10,34 @@ export async function getAllPosts(){
     return data;
 }
 
+export async function getAllComments() {
+    const options = {method: 'GET'};
+    const response = await fetch(environment.apiUrl + 'posts', options);
+    const data = await response.json();
+    console.log(data);
+    return data;
+}
+
+export async function getAllData() {
+    const postOptions = { method: 'GET' };
+    const postResponse = await fetch(environment.apiUrl + 'posts', postOptions);
+    const postData = await postResponse.json();
+    console.log(postData);
+  
+    const commentOptions = { method: 'GET' };
+    const commentResponse = await fetch(environment.apiUrl + 'comments', commentOptions);
+    const commentData = await commentResponse.json();
+    console.log(commentData);
+  
+    const combinedData = postData.map((post:any) => {
+      const comments = commentData.filter((comment:any) => comment.post_id === post.id);
+      return { ...post, comments };
+    });
+  
+    console.log(combinedData);
+    return combinedData;
+  }
+getAllData();
 export async function getAllUsers(){
     const options = {method: 'GET'};
     const response = await fetch(environment.apiUrl + 'users', options);
