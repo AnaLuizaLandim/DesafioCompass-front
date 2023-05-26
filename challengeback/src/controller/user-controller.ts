@@ -82,9 +82,22 @@ export const getAllUsersController = async (req: Request, res: Response<any>) =>
   }
 }
 export const loginController = (req: Request<{ email: string, password: string }>, res: Response<any>) => {
-  const response = login(req.body);
-  res.json(response);
-}
+  const { email, password } = req.body; 
+
+  login({ email, password })
+    .then((user) => {
+      if (user) {
+        res.json(user);
+      } else {
+        res.status(401).json({ error: 'Inválido isso ai que tu colocou' });
+      }
+    })
+    .catch((error) => {
+      res.status(500).json({ error: 'Man se liga ai' });
+    });
+};
+
+
 
 export const getUserByIdController = async (req: Request, res: Response<any>) => {
   try {

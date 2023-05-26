@@ -18,6 +18,7 @@ export async function getAllComments() {
     return data;
 }
 
+
 export async function getAllData() {
     const postOptions = { method: 'GET' };
     const postResponse = await fetch(environment.apiUrl + 'posts', postOptions);

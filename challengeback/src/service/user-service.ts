@@ -125,13 +125,35 @@ export function getAllUsers() {
     });
 }
 
-export const login =(value:{email: string, password: string})=>{
-    const userFound = UserData.users.find((item)=>(item.email===value.email))
-    if(userFound && userFound.password!==value.password){
-        return null;
-    }
-    return userFound || null    ;
-}
+export const login = (value: { email: string, password: string }) => {
+  const db = new sqlite3.Database('./database.db');
+  const query = `SELECT * FROM users WHERE email = ? and password = ?`;
+
+  return new Promise((resolve, reject) => {
+    db.get(query, [value.email, value.password], (error, row) => {
+      db.close();
+      if (error) {
+        reject(error);
+      } else {
+        if (row && row.password === value.password) {
+          resolve(row);
+        } else {
+          resolve(null);
+        }
+      }
+    });
+  });
+};
+
+
+
+// export const login =(value:{email: string, password: string})=>{
+//     const userFound = UserData.users.find((item)=>(item.email===value.email))
+//     if(userFound && userFound.password!==value.password){
+//         return null;
+//     }
+//     return userFound || null    ;
+// }
 
 export function getUserById(id: number) {
     
