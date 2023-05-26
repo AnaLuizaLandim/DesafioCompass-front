@@ -8,67 +8,60 @@ import { User } from "../model/user.model";
 // }
 
 
-
 export const deleteUserByIdController = async (req: Request<User>, res: Response<any>) => {
   try {
     const id = Number(req.params.id);
     console.log(id);
-    const user = await getUserById(id);
-    if (!user) {
-      res.status(404).json({
-        error: 'User não encontrado'
-      });
-      return;
-    }
 
     await deleteUserById(id);
 
-    res.json({
-      message: 'User excluído com sucesso'
+    res.status(204).json({
+      message: 'Usuário excluído com sucesso',
     });
   } catch (err) {
-    res.status(500).json({
-      error: 'Erro ao excluir o user'
-    });
+  
+      res.status(404).json({
+        error: 'Usuário não encontrado'
+      });
+    
   }
 };
+
 
 export const updateUserByIdController = async (req: Request<User>, res: Response<any>) => {
   try {
     const id = Number(req.params.id);
     const updatedFields: Partial<User> = req.body;
 
-    const user = await getUserById(id);
-    if (!user) {
-      res.status(404).json({
-        error: 'Usuário não encontrado'
-      });
-      return;
-    }
+    await updateUserById(id, updatedFields);
 
-    const updatedUser = { ...user, ...updatedFields };
-    const response = await updateUserById(id, updatedFields);
+    delete updatedFields.password;
 
-
-    res.json(response);
+    res.json(updatedFields);
   } catch (err) {
-    res.status(500).json({
-      error: 'Erro ao atualizar o usuário'
+    res.status(404).json({
+      error: 'Ocorreu um erro ao atualizar o usuário'
     });
   }
 };
+
+
 
 
 export const saveUserController = async (req: Request<User>, res: Response<any>) => {
   try {
-    const response = await saveUser(req.body);
+    const response : any = await saveUser(req.body);
+
+    delete response.password;
+
     res.json(response);
   } catch (err) {
-    res.status(500).json({
-      error: 'Erro ao salvar o User'
+    res.status(400).json({
+      error: 'Erro nas credenciais'
     });
   }
 };
+
 
 export const getAllUsersController = async (req: Request, res: Response<any>) => {
   try {
@@ -99,15 +92,15 @@ export const loginController = (req: Request<{ email: string, password: string }
 
 
 
+
 export const getUserByIdController = async (req: Request, res: Response<any>) => {
   try {
     const id = Number(req.params.id);
     const response = await getUserById(id);
     res.json(response);
+  } catch (err) {
+    res.status(404).json({
+      error: 'id não encontrado'
+    });
   }
-  catch (err) {
-    res.status(500).json({
-      error: 'Id não encontrado'
-    })
-  }
-}
+};

@@ -69,6 +69,8 @@ export function updateUserById(id: number, updatedFields: Partial<User>) {
         reject(error);
       } else {
         if (this.changes > 0) {
+          delete updatedFields.password;
+
           resolve({ id, ...updatedFields });
         } else {
           reject(new Error('Usuário não encontrado'));
@@ -93,7 +95,7 @@ export const saveUser = async (user: User) => {
         reject(error);
       } else {
         const userId = this.lastID;
-        const getUserQuery = `SELECT * FROM users WHERE id = ?`;
+        const getUserQuery = `SELECT id, name, user, birthdate, email, profile_photo FROM users WHERE id = ?`;
         const getUserParams = [userId];
 
         db.get(getUserQuery, getUserParams, (error, row) => {
@@ -154,22 +156,24 @@ export const login = (value: { email: string, password: string }) => {
 //     }
 //     return userFound || null    ;
 // }
-
 export function getUserById(id: number) {
-    
-    const db = new sqlite3.Database('./database.db')
-    const query =(`SELECT * FROM users WHERE id = ? LIMIT 1 OFFSET 0`);
-    return new Promise((resolve,reg)=>{
-        db.get(query, [id], (error,row)=>{
-            db.close();
-            if(error){
-              reg(error);
-            }
-            else{
-                resolve(row);
-            }
-        })     
-    })
+  const db = new sqlite3.Database('./database.db');
+  const query = `SELECT id, name, user, birthdate, email, profile_photo FROM users WHERE id = ? LIMIT 1 OFFSET 0`;
+
+  return new Promise((resolve, reject) => {
+    db.get(query, [id], (error, row) => {
+      db.close();
+      if (error) {
+        reject(error);
+      } else {
+        if (row) {
+          resolve(row);
+        } else {
+          reject(new Error('Usuário não encontrado'));
+        }
+      }
+    });
+  });
 }
 
 export default async function CreateTableUsers() {
