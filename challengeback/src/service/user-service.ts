@@ -1,4 +1,3 @@
-import { UserData } from "../constants/user-data.constant"
 import  sqlite3  from "sqlite3";
 import { openDbLocal } from "../repository/configdb";
 import { User } from "../model/user.model";
