@@ -243,6 +243,9 @@ color: #75767D;
 .column{
   display: inline-block;
 }
+.textodebaixo{
+  letter-spacing: 2px;
+}
 
 .column h4{
   margin: 0;

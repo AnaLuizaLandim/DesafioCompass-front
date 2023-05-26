@@ -4,7 +4,10 @@ import { Post } from '../../model/Post';
 import { getAllUsers } from '../../service/ApiService';
 import { User } from '../../model/User';
 import '../dashboard/Dashboard.css';
-import imagem from '../../assets/imgs/compass.uol_Negativo 1.png'
+import imagem from '../../assets/imgs/compass.uol_Negativo 1.png';
+import { format } from 'date-fns';
+
+
 export default function Dashboard() {
   const [posts, setPosts] = useState([] as Post[]);
   useEffect(() => {
@@ -36,7 +39,7 @@ export default function Dashboard() {
     if (user) setLoggedUser(JSON.parse(user) as User);
     getAllUsers().then((response) => {
       setUsers(response);
-      console.log(response);
+      // console.log(response);
     })
   }, [])
 
@@ -95,15 +98,16 @@ export default function Dashboard() {
                     <div className='column'>
                       <h4>{item.user}</h4>
                       <div className='description-post'>
-                        <i className="fa-regular fa-clock"></i><p className='textodebaixo'>12 minutos atrás de <span className='span-dash'>Paisagens Exuberantes</span></p>
+                        <i className="fa-regular fa-clock"></i>
+                        <p className='textodebaixo'>{format(new Date(item.post_date), 'dd-MM-yyyy')}</p>
                       </div>
                     </div>
                   </div>
                   <p className='post-description'>
                     {item.description}
                   </p>
-                  {item.url_imagem!=="" && (
-                    <div className="image-post" key={item.url_imagem}>
+                  {item.url_imagem !== null || item.url_imagem !== "" && (
+                    <div className="image-post" key={index}>
                       <img src={item.url_imagem} alt="" />
                     </div>
                   )}
