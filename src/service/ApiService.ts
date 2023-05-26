@@ -52,6 +52,7 @@ export async function postUserLogin(user:UserLogin){
     return data;
 }
 
+
 export async function sendPost(post:Post){
     const options = {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(post)};
     const response = await fetch(environment.apiUrl + 'posts', options);

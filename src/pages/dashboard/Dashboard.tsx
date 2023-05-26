@@ -77,7 +77,8 @@ export default function Dashboard() {
                 {users.map((user) => {
                 if (user.email === loggedUser.email) {
                   return (
-                  <><img src={user.profile_photo} className='imagem' alt=''></img><input className="placeholder" type="text" name="" id="" placeholder='O que você está pensando?' value={textPost} onChange={(event) => { setTextPost(event.target.value); } } /></>
+                  <><img src={user.profile_photo || 'https://i.pinimg.com/170x/4c/40/b7/4c40b787df81616b71e9a6021c3aca9d.jpg'}
+                  className='imagem' alt=''></img><input className="placeholder" type="text" name="" id="" placeholder='O que você está pensando?' value={textPost} onChange={(event) => { setTextPost(event.target.value); } } /></>
                   )
                 }}
                 )}
