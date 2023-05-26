@@ -96,7 +96,6 @@ export function updatePostById(id: number, updatedFields: Partial<Post>) {
     query += ' url_imagem = ?,';
     params.push(url_imagem);
   }
-  // Remove a vírgula extra do final da consulta
   query = query.slice(0, -1);
   query += ' WHERE id = ?';
   params.push(id);
@@ -120,7 +119,7 @@ export function updatePostById(id: number, updatedFields: Partial<Post>) {
 
 export function getAllPosts() {
   const db = new sqlite3.Database('./database.db');
-  const query = `SELECT * FROM posts`;
+  const query = `SELECT * FROM posts ORDER BY post_date DESC`;
 
   return new Promise((resolve, reject) => {
     db.all(query, (error, rows) => {

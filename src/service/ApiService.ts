@@ -10,6 +10,8 @@ export async function getAllPosts(){
     return data;
 }
 
+
+
 export async function getAllComments() {
     const options = {method: 'GET'};
     const response = await fetch(environment.apiUrl + 'posts', options);
@@ -38,7 +40,6 @@ export async function getAllData() {
     // console.log(combinedData);
     return combinedData;
   }
-getAllData();
 export async function getAllUsers(){
     const options = {method: 'GET'};
     const response = await fetch(environment.apiUrl + 'users', options);
@@ -58,9 +59,9 @@ export async function sendPost(post:Post){
     const options = {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(post)};
     const response = await fetch(environment.apiUrl + 'posts', options);
     const data = await response.json();
-    return data.unshift();
+    console.log(data)
+    return data;
 }
-
 export async function postUserRegister(user:UserRegister){
     const options = {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(user)};
     const response = await fetch(environment.apiUrl + 'users', options);
