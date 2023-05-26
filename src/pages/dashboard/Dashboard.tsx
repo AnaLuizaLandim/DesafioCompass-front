@@ -106,7 +106,7 @@ export default function Dashboard() {
                   <p className='post-description'>
                     {item.description}
                   </p>
-                  {item.url_imagem !== null || item.url_imagem !== "" && (
+                  {item.url_imagem !== null && item.url_imagem !== "" && (
                     <div className="image-post" key={index}>
                       <img src={item.url_imagem} alt="" />
                     </div>
