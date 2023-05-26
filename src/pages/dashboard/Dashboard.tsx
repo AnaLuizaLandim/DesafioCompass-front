@@ -103,7 +103,7 @@ export default function Dashboard() {
     <div className='post' key={index}>
       <div className="card">
         <div className='foto-user'>
-          {user && <img className='perfil' src={user.profile_photo} alt=''></img>}
+          {user && <img className='perfil' src={user.profile_photo || 'https://i.pinimg.com/170x/4c/40/b7/4c40b787df81616b71e9a6021c3aca9d.jpg'} alt=''></img>}
           <div className='column'>
             <h4>{item.user}</h4>
             <div className='description-post'>
@@ -130,7 +130,7 @@ export default function Dashboard() {
                 {users.map((user) => {
                 if (user.email === loggedUser.email) {
                   return (
-                  <><img src={user.profile_photo || 'https://i.pinimg.com/170x/4c/40/b7/4c40b787df81616b71e9a6021c3aca9d.jpg'} className='imagem' alt=''></img><input className="placeholder" type="text" name="" id="" placeholder='O que você está pensando?' value={textPost} onChange={(event) => { setTextPost(event.target.value); } } /></>
+                  <><img src={user.profile_photo || 'https://i.pinimg.com/170x/4c/40/b7/4c40b787df81616b71e9a6021c3aca9d.jpg'} className='imagem' alt=''></img><input className="placeholder" type="text" name="" id="" placeholder='O que você está pensando?'  /></>
                   )
                 }}
                 )}

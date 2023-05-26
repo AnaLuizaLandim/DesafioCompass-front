@@ -6,7 +6,7 @@ export async function getAllPosts(){
     const options = {method: 'GET'};
     const response = await fetch(environment.apiUrl + 'posts', options);
     const data = await response.json();
-    // console.log(data);
+    console.log(data);
     return data;
 }
 
@@ -35,7 +35,7 @@ export async function getAllData() {
       return { ...post, comments };
     });
   
-    console.log(combinedData);
+    // console.log(combinedData);
     return combinedData;
   }
 getAllData();
@@ -58,7 +58,7 @@ export async function sendPost(post:Post){
     const options = {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(post)};
     const response = await fetch(environment.apiUrl + 'posts', options);
     const data = await response.json();
-    return data;
+    return data.unshift();
 }
 
 export async function postUserRegister(user:UserRegister){
