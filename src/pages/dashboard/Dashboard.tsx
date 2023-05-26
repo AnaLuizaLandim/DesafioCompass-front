@@ -74,8 +74,14 @@ export default function Dashboard() {
             <div className='write-field'>
               <form className='form-dash' onSubmit={handleSubmit}>
                 <div className='textbox-comment'>
-                  <img src='https://meups.com.br/wp-content/uploads/2022/10/The-Witcher-6-900x503.jpg' className='imagem' alt=''></img>
-                  <input className="placeholder" type="text" name="" id="" placeholder='O que você está pensando?' value={textPost} onChange={(event) => { setTextPost(event.target.value) }} />
+                {users.map((user) => {
+                if (user.email === loggedUser.email) {
+                  return (
+                  <><img src={user.profile_photo} className='imagem' alt=''></img><input className="placeholder" type="text" name="" id="" placeholder='O que você está pensando?' value={textPost} onChange={(event) => { setTextPost(event.target.value); } } /></>
+                  )
+                }}
+                )}
+
                 </div>
                 <div className='Sempre'>
                   <i className="fa-solid fa-camera"></i>
@@ -120,8 +126,13 @@ export default function Dashboard() {
           <button><i className="fa-solid fa-share-nodes"></i>Compartilhar</button>
         </div>
         <div className='textbox-comment'>
-          <img src='https://meups.com.br/wp-content/uploads/2022/10/The-Witcher-6-900x503.jpg' className='imagem' alt=''></img>
-          <input className="placeholder" type="text" name="" id="" placeholder='O que você está pensando?' />
+                {users.map((user) => {
+                if (user.email === loggedUser.email) {
+                  return (
+                  <><img src={user.profile_photo} className='imagem' alt=''></img><input className="placeholder" type="text" name="" id="" placeholder='O que você está pensando?' value={textPost} onChange={(event) => { setTextPost(event.target.value); } } /></>
+                  )
+                }}
+                )}
         </div>
         <div className="comments">
           <p className='all-comments'>Todos os comentários</p>
@@ -157,7 +168,7 @@ export default function Dashboard() {
                   .filter(item => item.user !== loggedUser.user)
                   .map((item, index) => (
                     <div className='friend-user' key={index}>
-                      <img src='https://meups.com.br/wp-content/uploads/2022/10/The-Witcher-6-900x503.jpg' className='imagem' alt='' />
+                      <img src={item.profile_photo} className='imagem' alt='' />
                       <li className='lista-d'>{item.name}</li>
                     </div>
                   ))
