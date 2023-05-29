@@ -1,5 +1,4 @@
 import { Post } from "../model/post.model";
-import { openDbLocal } from "../repository/configdb";
 import sqlite3 from "sqlite3";
 import { Comment } from "../model/post.model";
 

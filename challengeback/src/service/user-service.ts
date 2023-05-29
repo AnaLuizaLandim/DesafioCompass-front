@@ -2,9 +2,7 @@ import  sqlite3  from "sqlite3";
 import { openDbLocal } from "../repository/configdb";
 import { User } from "../model/user.model";
 
-// export const getAllUsers =()=>{
-//     return UserData.users;
-// }
+
 export function deleteUserById(id: number) {
   return new Promise((resolve, reject) => {
     const db = new sqlite3.Database('./database.db');
@@ -148,13 +146,7 @@ export const login = (value: { email: string, password: string }) => {
 
 
 
-// export const login =(value:{email: string, password: string})=>{
-//     const userFound = UserData.users.find((item)=>(item.email===value.email))
-//     if(userFound && userFound.password!==value.password){
-//         return null;
-//     }
-//     return userFound || null    ;
-// }
+
 export function getUserById(id: number) {
   const db = new sqlite3.Database('./database.db');
   const query = `SELECT id, name, user, birthdate, email, profile_photo FROM users WHERE id = ? LIMIT 1 OFFSET 0`;
