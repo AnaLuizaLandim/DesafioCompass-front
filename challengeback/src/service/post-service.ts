@@ -3,10 +3,7 @@ import { openDbLocal } from "../repository/configdb";
 import sqlite3 from "sqlite3";
 import { Comment } from "../model/post.model";
 
-// export const getAllPosts = () => {
-//     const data = PostsData.posts;
-//     return data;
-// }
+
 export const saveComment = async (comment: Comment) => {
   const db = new sqlite3.Database('./database.db');
   const query = `INSERT INTO comments (post_id, user, comment) VALUES (?, ?, ?)`;
@@ -132,11 +129,7 @@ export function getAllPosts() {
     });
   });
 }
-//postagem
-// export const savePost = (post: Post) => {
-//     PostsData.posts = [post, ...PostsData.posts]; 
-//     return post;
-// }
+
 
 export const savePost = async (post: Post) => {
   const db = new sqlite3.Database('./database.db');
@@ -292,7 +285,3 @@ export async function InsertComment(post: any) {
       `, [post.id, post.user, post.comment]);
   });
 }
-// export const savePost = (post: Post) => {
-//     PostsData.posts.unshift(post); // adiciona o post no início da array
-//     return post;
-// }

@@ -39,5 +39,5 @@ AppRoutes.route('/api/v1/posts/comments/:id')
 .delete(deleteCommentByIdController)
 
 //login
-AppRoutes.route('/login').post(loginController);
+AppRoutes.route('/api/v1/users/login').post(loginController);
 

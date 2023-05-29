@@ -8,12 +8,6 @@ export default function AppRoutes() {
   return (
     <BrowserRouter>
         <div>
-            {/* <nav>
-                <Link to="/">Login</Link>
-                <Link to="/dashboard">Dashboard</Link>
-                <Link to="/register">Register</Link>
-
-            </nav> */}
             <Routes>
                 <Route path="/" element={<Login/>}/> 
                 <Route path="/dashboard" element={<Dashboard/>}/> 

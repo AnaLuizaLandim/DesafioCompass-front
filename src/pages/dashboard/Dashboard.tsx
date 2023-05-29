@@ -39,7 +39,6 @@ export default function Dashboard() {
     if (user) setLoggedUser(JSON.parse(user) as User);
     getAllUsers().then((response) => {
       setUsers(response);
-      // console.log(response);
     })
   }, [])
 

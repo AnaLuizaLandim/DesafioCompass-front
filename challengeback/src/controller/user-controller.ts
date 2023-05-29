@@ -2,10 +2,6 @@ import { Request, Response } from "express";
 import { deleteUserById, getAllUsers, getUserById, login, saveUser, updateUserById } from "../service/user-service"
 import { User } from "../model/user.model";
 
-// export const getAllUsersController =(req:Request,res:Response<any>)=>{
-//     const response = getAllUsers();
-//     res.json(response);
-// }
 
 
 export const deleteUserByIdController = async (req: Request<User>, res: Response<any>) => {

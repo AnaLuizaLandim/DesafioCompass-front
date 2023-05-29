@@ -103,16 +103,6 @@ export const getAllPostsController = async (req: Request, res: Response<any>) =>
 }
 
 
-// export const getAllPostsController = (req: Request, res: Response<any>) => {
-//     const response = getAllPosts();
-//     res.json(response);
-// }
-
-// export const savePostController = (req: Request<Post>, res: Response<Post>) => {
-//     const response = savePost(req.body);
-//     res.json(response);
-// }
-
 
 export const savePostController = async (req: Request<Post>, res: Response<any>) => {
   try {
