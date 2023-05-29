@@ -1,23 +1,30 @@
 import React from 'react';
-import '../register/Register.css'
+import '../register/Register.css';
 import { User, UserLogin, UserRegister } from '../../model/User';
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 import { getAllUsers, postUserLogin, postUserRegister } from '../../service/ApiService';
 
 export default function Register() {
-  interface FormEvent extends React.FormEvent<HTMLFormElement> { }
+  interface FormEvent extends React.FormEvent<HTMLFormElement> {}
 
   const navigate = useNavigate();
   const [users, setUsers] = useState([] as User[]);
   useEffect(() => {
     getAllUsers().then((response) => {
       setUsers(response);
-    })
-  }, [])
+    });
+  }, []);
 
-  const [form, setForm] = useState({ email: '', password: '', name: '', user: '', birthdate:''  } as UserRegister);
-  const [errors, setErrors] = useState({ email: false, password: false, name: false, user: false, birthdate: false, repeatPassword: false});
+  const getUserData = () => {
+    getAllUsers().then((response) => {
+      setUsers(response);
+      console.log(response);
+    });
+  };
+
+  const [form, setForm] = useState({ email: '', password: '', name: '', user: '', birthdate: '' } as UserRegister);
+  const [errors, setErrors] = useState({ email: false, password: false, name: false, user: false, birthdate: false, repeatPassword: false });
 
   const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -27,6 +34,15 @@ export default function Register() {
     event?.preventDefault();
 
     let formErrors = { email: false, password: false, name: false, user: false, birthdate: false, repeatPassword: false };
+    const existingUser = users.find((user) => user.user === form.user);
+    if (existingUser) {
+      formErrors.user = true;
+    }
+
+    const existingEmail = users.find((user) => user.email === form.email);
+    if (existingEmail) {
+      formErrors.email = true;
+    }
 
     if (repeatPassword !== form.password) {
       formErrors.repeatPassword = true;
@@ -36,7 +52,7 @@ export default function Register() {
     if (repeatPassword === '') {
       formErrors.repeatPassword = true;
     }
-    if (form.name === '' || form.name.length <6) {
+    if (form.name === '' || form.name.length < 6) {
       formErrors.name = true;
     }
     if (form.email === '' || !emailRegex.test(form.email)) {
@@ -51,10 +67,10 @@ export default function Register() {
         formErrors.birthdate = true;
       }
     }
-    if (form.password === '' || form.password.length<8) {
+    if (form.password === '' || form.password.length < 8) {
       formErrors.password = true;
     }
-    if (form.user === '' || /[^a-zA-Z0-9]/.test(form.user) || form.user.length<6) {
+    if (form.user === '' || /[^a-zA-Z0-9]/.test(form.user) || form.user.length < 6) {
       formErrors.user = true;
     }
     if (Object.values(formErrors).some((error) => error)) {
@@ -64,13 +80,12 @@ export default function Register() {
 
     postUserRegister(form).then((response) => {
       if (response) {
-        navigate('/')
+        navigate('/');
       } else {
-        setErrors({ ...formErrors});
+        setErrors({ ...formErrors });
       }
     });
   };
-
   return (
     <div className="overflow-register">
       <div className="card-principal">
