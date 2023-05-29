@@ -11,7 +11,6 @@ export async function getAllPosts(){
 }
 
 
-
 export async function getAllComments() {
     const options = {method: 'GET'};
     const response = await fetch(environment.apiUrl + 'posts', options);
