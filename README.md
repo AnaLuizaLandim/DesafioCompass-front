@@ -21,3 +21,51 @@ Digite "npm install" no terminal e pressione Enter. Isso iniciará o processo de
 
 Após a conclusão da instalação, você pode executar o projeto usando "npm start" ou outro comando de execução especificado no arquivo "package.json".
 
+#ROTAS PARA FACILITAR
+
+
+CommentsbyID - Post
+http://localhost:8080/api/v1/posts/2/comments/
+
+DeleteCommentById - Delete
+http://localhost:8080/api/v1/posts/comments/30
+
+DeleteUser - Delete
+http://localhost:8080/api/v1/users/32
+
+DeletePost - Delete
+http://localhost:8080/api/v1/posts/40
+
+UpdatePost - Update
+http://localhost:8080/api/v1/posts/32
+
+UpdateUser - Update
+http://localhost:8080/api/v1/users/5
+
+UserById - Get
+http://localhost:8080/api/v1/users/30
+
+SaveUser -  Post
+http://localhost:8080/api/v1/users
+
+All comments - Get
+http://localhost:8080/api/v1/comments/
+
+CommentsbyPost_id_ID - Get
+http://localhost:8080/api/v1/posts/9/comments/12
+
+PostById - Get
+http://localhost:8080/api/v1/posts/16
+
+Login - Post
+http://localhost:8080/api/v1/users/login
+
+SavePost  - Post
+http://localhost:8080/api/v1/posts
+
+getAllUser - Get
+http://localhost:8080/api/v1/users
+
+getAllPosts - Get
+http://localhost:8080/api/v1/posts
+
