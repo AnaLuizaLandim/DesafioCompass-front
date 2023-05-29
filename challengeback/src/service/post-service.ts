@@ -10,7 +10,7 @@ import { Comment } from "../model/post.model";
 export const saveComment = async (comment: Comment) => {
   const db = new sqlite3.Database('./database.db');
   const query = `INSERT INTO comments (post_id, user, comment) VALUES (?, ?, ?)`;
-  const params = [comment.user, comment.comment, comment.post_id];
+  const params = [comment.post_id, comment.user, comment.comment];
 
   return new Promise((resolve, reject) => {
     db.run(query, params, function (error) {
