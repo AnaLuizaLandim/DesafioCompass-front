@@ -1,5 +1,5 @@
-.home *{
-    box-sizing: border-box;
+.home * {
+  box-sizing: border-box;
 }
 
 .home {
@@ -20,7 +20,8 @@
 .nav {
   box-sizing: border-box;
   background: #1e1f23;
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   height: 100vh;
   border: 2px solid #2e2f36;
 }
@@ -35,7 +36,7 @@
 }
 
 .header-dash {
-    display: inline-flex;
+  display: inline-flex;
   box-sizing: border-box;
   width: 100%;
   height: 8vh;
@@ -46,25 +47,24 @@
   border-color: #2e2f36;
 }
 
-
-.header-dash h3{
+.header-dash h3 {
   margin: 0;
   padding: 0;
 }
-.header-dash i{
-  padding:0.9rem;
+.header-dash i {
+  padding: 0.9rem;
 }
 
-.header-dash a:visited{
+.header-dash a:visited {
   color: white;
 }
 
-.header-dash .title-header{
-margin: 0;
-padding: 0.5rem 0;
+.header-dash .title-header {
+  margin: 0;
+  padding: 0.5rem 0;
 }
 
-.header-dash .user-lol{
+.header-dash .user-lol {
   margin-left: 60%;
   padding: 0.5rem 0;
 }
@@ -99,29 +99,27 @@ padding: 0.5rem 0;
   border: 2px solid #2e2f36;
   border-radius: 16px;
 }
-.write-field input::placeholder{
-    color: #75767D;
-    padding-inline-start: 20px;
+.write-field input::placeholder {
+  color: #75767d;
+  padding-inline-start: 20px;
 }
-.placeholder{
+.placeholder {
   color: white;
   padding-inline-start: 0.5rem !important;
 }
-.dash-b{
+.dash-b {
   box-sizing: border-box;
-  margin-top:1rem;
-  border: 2px solid #27282F;
+  border: 2px solid #27282f;
   border-radius: 8px;
   width: 109px;
   height: 33px;
-  background-color: #1E1F23;
+  background-color: #1e1f23;
   color: white;
-  margin-inline-start: 56%;
-  font-family: 'Poppins';
-
+  font-family: "Poppins";
+  margin-inline-start: 22rem;
 }
 
-.Sempre i{
+.Sempre i {
   padding: 10px;
   color: gray;
 }
@@ -165,174 +163,170 @@ padding: 0.5rem 0;
   flex-grow: 1;
 }
 
-.friends{
+.friends {
   overflow-y: scroll;
-
 }
-.friends::-webkit-scrollbar{
+.friends::-webkit-scrollbar {
   display: none;
 }
 
-.trend h3{
-    margin: 0;
-    padding: 0;
-}
-
-.trend-b{
-    background-color:#1E1F23;
-    border: none;
-    color: white;
-}
-
-
-.compassnegativo{
-    width: 20rem;
-    padding: 20px;
-}
-
-.ul-dash{
+.trend h3 {
+  margin: 0;
   padding: 0;
 }
-.lista-d{
-    list-style: none;
-    margin: 0;
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+
+.trend-b {
+  background-color: #1e1f23;
+  border: none;
+  color: white;
+}
+
+.compassnegativo {
+  width: 20rem;
+  padding: 20px;
+}
+
+.ul-dash {
+  padding: 0;
+}
+.lista-d {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
 
 /*Posts*/
 
-.card{
+.card {
   width: 710px;
   display: inline-block;
   padding-left: 2rem;
   padding-right: 2rem;
   padding-top: 0.5rem;
-
 }
 .foto-user {
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
 
 .foto-user img {
-  width: 50px; 
-  height: auto; 
-  margin-right: 10px; 
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
   border-radius: 100%;
 }
 
-.description-post{
+.description-post {
   display: flex;
 }
-.description-post p{
-margin: 0;
-color: #75767D;
-
+.description-post p {
+  margin: 0;
+  color: #75767d;
 }
-.span-dash{
+.span-dash {
   display: inline-block;
   color: white;
 }
-.description-post i{
+.description-post i {
   margin: 0;
   padding-right: 0.5rem;
   padding-top: 0.2rem;
-  color: #75767D;
-  }
+  color: #75767d;
+}
 
-.column{
+.column {
   display: inline-block;
 }
-.textodebaixo{
+.textodebaixo {
   letter-spacing: 2px;
 }
 
-.column h4{
+.column h4 {
   margin: 0;
   letter-spacing: 2px;
 }
 
-.post-description{
+.post-description {
   margin: 0;
   padding-block-start: 0.5rem;
 }
 
-.botoes{
+.botoes {
   display: flex;
   padding: 1rem 0;
 }
 
-.botoes button{
+.botoes button {
   background-color: #1e1f23;
-  color: #A1A3A7;
+  color: #a1a3a7;
   border: none;
-  font-family: 'Inter';
+  font-family: "Inter";
   width: 100%;
   font-size: 16px;
 }
 
-.botoes button:hover{
+.botoes button:hover {
   background-color: #1e1f23;
-  color: #2D86FC;
+  color: #2d86fc;
   border: none;
-  font-family: 'Inter';
+  font-family: "Inter";
   width: 100%;
 }
-.textbox-comment{
+.textbox-comment {
   display: flex;
 }
-.textbox-comment input{
+.textbox-comment input {
   margin: 10px 20px;
   background-color: #27282f;
   border-radius: 46px;
   width: 100%;
   height: 32px;
   border: 2px solid #2e2f36;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   padding: 0;
 }
 
-.imagem{
+.imagem {
   margin-top: 10px;
   border-radius: 100%;
   width: 32px;
   height: 32px;
 }
 
-.placeholder::placeholder{
-  color: #75767D;
+.placeholder::placeholder {
+  color: #75767d;
   padding-inline-start: 20px;
 }
 
-.all-comments{
+.all-comments {
   margin: 0.5rem 0 0 0;
   padding: 0;
   font-size: 12px;
 }
 
-.foto-user .image-comment{
+.foto-user .image-comment {
   width: 32px;
   height: 32px;
 }
 
-.comments-text{
+.comments-text {
   margin: 1rem 0;
 }
-.comments-text h5{
+.comments-text h5 {
   margin: 0 0 0 0;
   padding: 0;
   letter-spacing: 2px;
 }
 
-.comments-text p{
+.comments-text p {
   padding: 0;
   margin: 0;
 }
 
-.image-post{
+.image-post {
   margin: 1rem 0 0 0;
 }
-.image-post img{
+.image-post img {
   width: 100%;
   height: 100%;
   min-height: 18.75rem;
@@ -340,45 +334,19 @@ color: #75767D;
   border-radius: 5%;
 }
 
-.friend-user{
+.friend-user {
   display: flex;
 }
 
-.friend-user .imagem{
+.friend-user .imagem {
   margin-block-end: 1.5rem;
 }
 
-button i{
+button i {
   padding-right: 0.5rem;
 }
-@media (min-width: 1440px )
-{
-    .compassnegativo{
-        width: 20rem;
-        padding: 20px;
-    }
-
-    .header-dash i{
-      padding:1.9rem;
-    }
-    
-    .header-dash .title-header{
-    margin: 0;
-    padding: 1.5rem 0;
-    }
-    
-    .header-dash .user-lol{
-      margin-left: 60%;
-      padding: 1.5rem 0;
-  }
-
-  .card{
-    width: 100%;
-  }
-
-  .posts{
-    width: 200%;
-  }
-
-  
+@media (min-width: 1900px) {
+ .dash-b{
+  margin-inline-start: 70%;
+ }
 }
