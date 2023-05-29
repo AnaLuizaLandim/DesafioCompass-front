@@ -3,7 +3,7 @@ challengeback/: é o arquivo que possui o back-end.
 desafioCompass-Front/: é o arquivo front-end.
 
 O banco de dados utilizado é o SQLITE. 
-
+Recomendo a extensão MySQL do VSCODE que é um gerenciador de banco de dados.
 Use o Insomia, Postman ou uma extensão para visualizar as rotas de GET, PUT, DELETE e POST.
 # NPM INSTALL- FAÇA ISSO NA PASTA CHALLENGEBACK TAMBÉM.
 
