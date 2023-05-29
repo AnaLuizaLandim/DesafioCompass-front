@@ -35,7 +35,7 @@ export const deleteCommentByIdController = async (req: Request<any>, res: Respon
       message: 'Comentário excluído com sucesso'
     });
   } catch (err) {
-    res.status(500).json({
+    res.status(404).json({
       error: 'Erro ao excluir o comentário'
     });
   }
@@ -58,7 +58,7 @@ export const deletePostByIdController = async (req: Request<Post>, res: Response
       message: 'Post excluído com sucesso'
     });
   } catch (err) {
-    res.status(500).json({
+    res.status(404).json({
       error: 'Erro ao excluir o post'
     });
   }
@@ -82,7 +82,7 @@ export const updatePostsByIdController = async (req: Request<Post>, res: Respons
 
     res.json(response);
   } catch (err) {
-    res.status(500).json({
+    res.status(404).json({
       error: 'Erro ao atualizar o post'
     });
   }
@@ -96,7 +96,7 @@ export const getAllPostsController = async (req: Request, res: Response<any>) =>
     console.log(response);
     res.json(response);
   } catch (err) {
-    res.status(500).json({
+    res.status(404).json({
       error: 'Erro ao obter os posts'
     });
   }
@@ -123,7 +123,7 @@ export const savePostController = async (req: Request<Post>, res: Response<any>)
     console.log(savedPost)
     res.json(posts);
   } catch (err) {
-    res.status(500).json({
+    res.status(404).json({
       error: 'Erro ao salvar o post'
     });
   }
@@ -141,7 +141,7 @@ export const getPostByIdController = async (req: Request, res: Response<any>) =>
     res.json(response);
   }
   catch (err) {
-    res.status(500).json({
+    res.status(404).json({
       error: 'Id não encontrado'
     })
   }
@@ -157,7 +157,7 @@ export const getPostCommentController = async (req: Request, res: Response<any>)
     res.json(response);
   }
   catch (err) {
-    res.status(500).json({
+    res.status(404).json({
       error: 'Id não encontrado'
     })
   }
@@ -168,7 +168,7 @@ export const getAllCommentController = async (req: Request, res: Response<any>) 
     const response = await getAllComments();
     res.json(response);
   } catch (err) {
-    res.status(500).json({
+    res.status(404).json({
       error: 'Erro ao obter os comentários'
     });
   }
