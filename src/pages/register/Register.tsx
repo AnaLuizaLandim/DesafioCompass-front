@@ -87,6 +87,7 @@ export default function Register() {
     });
   };
   return (
+    
     <div className="overflow-register">
       <div className="card-principal">
         <div className="box-register">

@@ -11,7 +11,7 @@ export const saveCommentController = async (req: Request<Comment>, res: Response
 
     res.json(savedComment);
   } catch (err) {
-    res.status(500).json({
+    res.status(404).json({
       error: 'Erro ao salvar o comentário'
     });
   }
