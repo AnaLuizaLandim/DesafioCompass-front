@@ -1,7 +1,10 @@
 import  sqlite3  from "sqlite3";
+import { openDbLocal } from "../repository/configdb";
 import { User } from "../model/user.model";
 
-
+// export const getAllUsers =()=>{
+//     return UserData.users;
+// }
 export function deleteUserById(id: number) {
   return new Promise((resolve, reject) => {
     const db = new sqlite3.Database('./database.db');
